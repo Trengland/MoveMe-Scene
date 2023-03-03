@@ -1,0 +1,41 @@
+#navmain {
+    padding: 10px;
+    background-color: white;
+    border-bottom: black 50px;
+    height: 75px;
+}
+
+body {
+    color: #4a4a4a;
+    background-color: black;
+    font-size: 1em;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+    color: white;
+    font-weight: 600;
+    line-height: 1.125;
+}
+
+#homepage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardimage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer {
+    margin-top: 27.5%;
+    padding: 22px;
+    background-color: lightgrey;
+}
+

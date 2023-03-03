@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MoveMe Scene</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./Assets\CSS\style.css"/>
+  </head>
+
+  <body>
+    <!-- NavBar - Code modified from bulma.io/documentation -->
+    <nav id="navmain" class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="">
+          <img src="./Assets/images/moveme.jpg" alt="MoveMe Scene Logo" width="112" height="25">
+        </a>
+    
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+    
+      <!-- need javascript to toggle navbar-menu for is-active -->
+      <!-- min 3:25 https://www.youtube.com/watch?v=qvn2SxGvyPs&list=PL4cUxeGkcC9iXItWKbaQxcyDT1u6E7a8a&index=5 -->
+      <div id="navbarBasicExample" class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item" href="#homepage">
+            Home
+          </a>
+    
+          <a class="navbar-item" href="#trending-movies">
+            Trending Movies
+          </a>
+    
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              More
+            </a>
+    
+            <div class="navbar-dropdown">
+              <a class="navbar-item">
+                About
+              </a>
+              <a class="navbar-item">
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+    
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <a class="button is-dark">
+                <strong>Sign up</strong>
+              </a>
+              <a class="button is-light">
+                Log in
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Homepage -->
+    <div class="content container has-text-centered" id="homepage">
+      <h1 class="pt-6 is-size-2 has-text-weight-light">Top Trending Movies!</h1>
+      <h2 class="px-6 py-2 has-text-weight-light">Discover the most popular movies availble in theaters, across stremaing devices, on-demand & more!</h2>
+      
+
+      <div class="cardimage" class="card" style="width: 18rem;">
+        <br>
+        <h5 class="card-title">The #1 Trending Movie in the USA!</h5>
+        <img src="Screenshot 2023-03-03 142834.png" class="card-img-top" alt="cocaine-bear-movie-poster">
+        <div class="card-body">
+            <br>
+          
+          <p class="card-text">Inspired by the 1985 true story of a drug runner's plane crash, missing cocaine, and the black bear that ate it, this wild thriller finds an oddball group of cops, criminals, tourists and teens converging in a Georgia forest where a 500- pound apex predator has ingested a staggering amount of cocaine and gone on a coke-fueled rampage for more blow … and blood.</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Directed by: Elizabeth Banks</li>
+          <li class="list-group-item">Current Box office: $34.1 million</li>
+          <li class="list-group-item">Release date: February 24, 2023</li>
+        </ul>
+        <div class="card-body">
+          <a href="index.html" class="card-link is-size-3">Movie Mood Quiz!</a>
+        </div>
+      </div>
+      
+      
+      <div class="py-3 button-container">
+      </div>
+    </div>
+    <!-- Quiz Page -->
+    <div id="quiz-page">
+
+    </div>
+    <!-- Trending Movies -->
+    <div id="trending-movies">
+    </div>
+
+    
+    <footer class="footer">
+        <div class="content has-text-centered">
+          <p>
+            <strong>MoveMe Scene</strong> by <a href="https://github.com/Trengland/MoveMe-Scene/graphs/contributors">Collaborator Team</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
+
+  <script src="./Assets/JS/script.js"></script>
+  </body>
+</html>
