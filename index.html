@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MoveMe Scene</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="assets\css\style.css" />
   </head>
 
   <body>
@@ -14,7 +14,7 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <!-- Logo -->
-        <a class="navbar-item" href="#homepage">
+        <a class="navbar-logo" href="index.html">
           <img src="./assets/images/moveme.jpg" href="#index.html" alt="MoveMe Scene Logo" width="112" height="28">
         </a>
 
@@ -39,38 +39,24 @@
             Trending Movies
           </a>
     
-          <!-- Dropdown -->
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              More
-            </a>
-      
-            <div class="navbar-dropdown">
-              <!-- About Item -->
-              <a class="navbar-item">
-                About
-              </a>
-              <!-- Contact Us Item -->
-              <a class="navbar-item">
-                Contact Us
-              </a>
-            </div>
-          </div>
+          <a class="navbar-item" href="quiz.html">
+            Movie Mood Quiz
+          </a>
         </div>
         
         <!-- Sign up and Log in buttons at End of Navbar-->
         <div class="navbar-end">
-          <div class="navbar-item">
+          <div class="navbar-button">
             <!-- Buttons container -->
             <div class="buttons">
               <!-- Sign Up Button -->
               <a class="button is-dark">
-                <strong>Sign up</strong>
+                <strong>Sign up for our weekly Newsletter!</strong>
               </a>
               <!-- Log in Button -->
-              <a class="button is-light">
+              <!-- <a class="button is-light">
               Log in
-              </a>
+              </a> -->
             </div>
           </div>
         </div>
@@ -78,12 +64,12 @@
     </nav>
     <!-- Homepage -->
     <div class="content container has-text-centered" id="homepage">
-      <h1 class="pt-6 is-size-1 has-text-weight-bold">Welcome to MoveMe Scene!</h1>
+      <h1 class="pt-6 is-size-1 has-text-weight-bold">Welcome to <i>MoveMe Scene!</i></h1>
       <h2 class="px-6 py-2 is-size-3 has-text-weight-bold">Take <i>The Movie Mood Quiz</i> and find your ideal movie for tonight!</h2>
       <div class="py-3 button-container">
         <br>
         <br>
-      <a class="button is-large is-rounded is-danger is-responsive" href="#quiz-page">Movie Mood Quiz</a>
+      <a class="button is-large is-rounded is-danger is-responsive" href="quiz.html">Movie Mood Quiz</a>
       </div>
     </div>
 
