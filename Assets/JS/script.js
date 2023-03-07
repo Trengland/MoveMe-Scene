@@ -1,3 +1,18 @@
+// Variable as a place holder until Team Browns has their variable 
+let recommendedMovie = "Grease";
+let movieID = [];
+
+
+// API URL Variables
+let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
+let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
+let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+
+https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=87ceec9af92ce89acfb2e11778f0841f&language=en-US
+
+// Document Query Selector
+// let trailerContainerEl;
+
 // Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
 
@@ -11,64 +26,48 @@ $(document).ready(function() {
   });
 });
 
+// CL
+console.log(movieID);
 
-
-
-// CL - Variables
-
-let recommendedMovie = "Grease";
-let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
-let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
-let trailerURL = 'https://api.themoviedb.org/4/list/1?api_key=' + apiKeyTMBD;
-
-// "https://api.themoviedb.org/3/movie/" + movie_id + "/videos?api_key=" + apiKeyTMBD + "&language=en-US"'
-
+// CL - call getMovie Function
+getMovieID();
 
 // CL & SS - Function to call GET Search Movies to get Movie ID
-function getMovie (){
+function getMovieID (){
     fetch(idURL)
     .then(function(response){
         if (response.ok) {
             // need to look at other examples to make sure the .then below is correct as instructor said this isn't happening
             response.json().then(function (data) {
                 console.log("API call was a success!");
-                console.log(data);
+                console.log(data.results[0].id);
+                movieID.push(data.results[0].id);
                 // let variableID = ;
               });
             }      
         })
     
-
-
-    
     Trailers();
 }
 
-getMovie();
 
-// let recommendedMovie = "Elf";
-// let apiKeyTMBD = ;
-// let queryURL = 'https://api.themoviedb.org/4/list/1?api_key=' + apiKeyTMBD;
-
-
-// CL - Function to call Trailers API
-// Function to
+// CL - Function for Trailers API
+// Function to populate Trailer with movie ID
 function Trailers () {
     fetch(trailerURL)
     .then(function(response){
             if (response.ok) {
-                // need to look at other examples to make sure the .then below is correct as instructor said this isn't happening
                 response.json().then(function (data) {
                     console.log(data);
                   });
             }
             else {
-                console.log('IMBD API call not working');
+                console.log('getVideos API call not working');
             }
         }
     )}
 
-    Trailers();
+
 
 
 //Log quiz question results 
