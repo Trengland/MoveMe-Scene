@@ -8,7 +8,7 @@ let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
 let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
 let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
 
-https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=87ceec9af92ce89acfb2e11778f0841f&language=en-US
+// https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=87ceec9af92ce89acfb2e11778f0841f&language=en-US
 
 // Document Query Selector
 // let trailerContainerEl;
@@ -24,6 +24,12 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
 
   });
+
+  // Check for click events on login button
+  $(".login-button").click(function() {
+    // Toggle is-active class on login modal
+    $(".modal-login")
+  })
 });
 
 // CL
@@ -67,6 +73,15 @@ function Trailers () {
         }
     )}
 
+
+
+
+// CL - Variables
+// let recommendedMovie = "Elf";
+// let apiKeyTMBD = ;
+// let queryURL = 'https://api.themoviedb.org/4/list/1?api_key=' + apiKeyTMBD;
+
+// CL - Function to call Trailers API
 
 
 
