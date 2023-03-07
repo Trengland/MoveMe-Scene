@@ -9,7 +9,14 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
 
   });
+
+  // Check for click events on login button
+  $(".login-button").click(function() {
+    // Toggle is-active class on login modal
+    $(".modal-login")
+  })
 });
+
 
 
 
