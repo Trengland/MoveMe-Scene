@@ -22,7 +22,6 @@ body {
     text-shadow: 6px 6px 4px whitesmoke, 2px 2px 1px skyblue;
 }
 
-
 #homepage {
     display: flex;
     flex-direction: column;
