@@ -1,14 +1,34 @@
 #navmain {
     padding: 10px;
     background-color: white;
-    border-bottom: black 50px;
+    border-bottom: black 5px;
     height: 65px;
 }
+
+.navbar-logo {
+    size: large;
+    width: 175px;
+}
+
+.navbar-item {
+    font-size: larger;
+}
+
+
+.navbar-button {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.navbar-button :hover {
+    color: #f14668;
+}
+
 
 body {
     color: #4a4a4a;
     background-color: black;
-    background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
+    /* background: url("assets\images\pexels-pixabay-265685 (2).png") no-repeat; */
     background-size: 100%;
     font-size: 1em;
     font-weight: 400;
@@ -16,10 +36,10 @@ body {
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-    color: black;
+    color: white;
     font-weight: bold;
     line-height: 1.125;
-    text-shadow: 6px 6px 4px whitesmoke, 2px 2px 1px skyblue;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px #f14668;
 }
 
 #homepage {
