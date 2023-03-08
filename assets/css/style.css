@@ -5,6 +5,11 @@
     height: 65px;
 }
 
+.navbar {
+	width: 100%;
+	padding-top: 10px;
+}
+
 .navbar-logo {
     size: large;
     width: 175px;
@@ -30,18 +35,30 @@ body {
     color: #4a4a4a;
     background-color: black;
     background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
+    background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(rgb(72,0,72,0.8), rgb(192,72,72,0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-repeat: no-repeat;
     background-size: 100%;
     font-size: 1em;
     font-weight: 400;
     line-height: 1.5;
 }
 
-.content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
+.content h1 {
     color: white;
     font-weight: bold;
     line-height: 1.125;
-    text-shadow: 5px 5px 4px grey, 3px 3px 1px #f14668;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
 }
+
+.content h2, .content h3, .content h4, .content h5, .content h6 {
+    color: white;
+    font-weight: bold;
+    line-height: 1.125;
+    text-shadow: 5px 5px 4px grey, 2px 2px 1px black;
+}
+
 
 #homepage {
     display: flex;
