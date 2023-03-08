@@ -20,6 +20,7 @@
     padding-right: 10px;
 }
 
+
 .navbar-button :hover {
     color: #f14668;
 }
@@ -28,7 +29,7 @@
 body {
     color: #4a4a4a;
     background-color: black;
-    /* background: url("images\pexels-pixabay-265685 (2).png") no-repeat; */
+    background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
     background-size: 100%;
     font-size: 1em;
     font-weight: 400;
