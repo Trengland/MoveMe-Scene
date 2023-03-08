@@ -1,14 +1,15 @@
+//importing quiz data 
+import('./quiz.js');
+
+
 // Variable as a place holder until Team Browns has their variable 
 let recommendedMovie = "Grease";
-let movieID = [];
-
+let movieID = "";
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
 let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
-let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
 
-// https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=87ceec9af92ce89acfb2e11778f0841f&language=en-US
 
 // Document Query Selector
 // let trailerContainerEl;
@@ -47,19 +48,23 @@ function getMovieID (){
             response.json().then(function (data) {
                 console.log("API call was a success!");
                 console.log(data.results[0].id);
-                movieID.push(data.results[0].id);
-                // let variableID = ;
+                movieID=data.results[0].id;
+                Trailers(movieID);                
               });
             }      
         })
+    console.log(movieID)
     
-    Trailers();
 }
 
 
 // CL - Function for Trailers API
 // Function to populate Trailer with movie ID
-function Trailers () {
+
+function Trailers (movieID) {
+    console.log(movieID);
+    let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+   
     fetch(trailerURL)
     .then(function(response){
             if (response.ok) {
@@ -74,18 +79,6 @@ function Trailers () {
     )}
 
 
-
-
-// CL - Variables
-// let recommendedMovie = "Elf";
-// let apiKeyTMBD = ;
-// let queryURL = 'https://api.themoviedb.org/4/list/1?api_key=' + apiKeyTMBD;
-
-// CL - Function to call Trailers API
-
-
-
-//Log quiz question results 
 
 
 
