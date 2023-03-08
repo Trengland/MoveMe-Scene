@@ -12,7 +12,7 @@ let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "
 
 
 // Document Query Selector
-// let trailerContainerEl;
+let trailerContainerEl = document.querySelector('#trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
@@ -57,6 +57,7 @@ function getMovieID (){
     
 }
 
+console.log(movieID)
 
 // CL - Function for Trailers API
 // Function to populate Trailer with movie ID
@@ -70,6 +71,14 @@ function Trailers (movieID) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
+                // Pull they video key from the API Trailer Array
+                 let videoKey = data.results[0].key;
+                 console.log(videoKey);
+                //  Create the Youtube Link with the key of the video
+                let YoutubeLink = "youtube.com/watch?v=" + videoKey;
+                console.log(YoutubeLink);
+                // Update Trailer element in HTML to have the new Youtube Link
+                trailerContainerEl.textContent = YoutubeLink;
                   });
             }
             else {
