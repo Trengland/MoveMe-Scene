@@ -50,9 +50,16 @@
             <!-- Buttons container -->
             <div class="buttons">
               <!-- Sign Up Button -->
-              <a class="button is-dark">
+              <a class="button is-dark js-modal-trigger" data-target="sign-up-modal">
                 <strong>Sign up for our weekly Newsletter!</strong>
               </a>
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="e.g Alex Smith">
+                </div>
+              </div>
+            
               <!-- Log in Button -->
               <!-- <a class="button is-light">
               Log in
@@ -87,14 +94,18 @@
     <div id="trending-movies">
     </div>
 
-
-    <div class="modal">
+    <!-- <div class="modal" id="sign-up-modal">
       <div class="modal-background"></div>
       <div class="modal-content">
-        <h3>Login</h3>
-      </div>
-      <button class="modal-close is-large" aria-label="close"></button>
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control">
+            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+          </div>
+        </div>
     </div>
+    <button class="modal-close is-large" aria-label="close"></button>
+  </div> -->
 
 
     <footer class="footer">
