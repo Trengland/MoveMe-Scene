@@ -11,8 +11,10 @@ let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
 let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
 
 
-// Document Query Selector
-let trailerContainerEl = document.querySelector('#trailer-container');
+// Variable Elements from HTML
+let trailerSourceEl = document.getElementById('#src');
+let trailerVideoEl = document.getElementById('video');
+let trailerContainerEl = document.getElementById('trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
@@ -65,6 +67,7 @@ console.log(movieID)
 function Trailers (movieID) {
     console.log(movieID);
     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+    let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
     fetch(trailerURL)
     .then(function(response){
@@ -78,7 +81,11 @@ function Trailers (movieID) {
                 let YoutubeLink = "youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
                 // Update Trailer element in HTML to have the new Youtube Link
+                trailerSourceEl.setAttribute('src', YoutubeLink);
+                // trailerSourceEl.textContent = YoutubeLink;
                 trailerContainerEl.textContent = YoutubeLink;
+
+                
                   });
             }
             else {
@@ -87,7 +94,10 @@ function Trailers (movieID) {
         }
     )}
 
-
+        // Function to play the movie trailer
+        function playTrailer (params) {
+            
+        }
 
 
 
