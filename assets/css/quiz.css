@@ -1,0 +1,137 @@
+#navmain {
+    padding: 10px;
+    background-color: white;
+    border-bottom: black 5px;
+    height: 65px;
+	width: 100%;
+}
+
+.navbar {
+	width: 100%;
+	padding-top: 10px;
+}
+
+.navbar-logo {
+    size: large;
+    width: 175px;
+}
+
+.navbar-item {
+    font-size: larger;
+}
+
+
+.navbar-button {
+    padding-top: 8px;
+    padding-right: 10px;
+}
+
+
+.navbar-button :hover {
+    color: #f14668;
+}
+
+
+
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background-color: black;
+}
+
+.maintitle {
+	font-size: 50px;
+	color: white;
+    font-weight: bold;
+    line-height: 1.125;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+}
+
+#top {
+	font-size: large;
+	color: white;
+    font-weight: bold;
+    line-height: 1.125;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+}
+
+
+#fieldset1, #fieldset2 {
+	width:100%;
+}
+
+
+.hr {
+	height: 5px;
+	color:limegreen;
+}
+
+.small-text {
+	font-size:.7em;
+}
+
+.red-text {
+	color:red;
+}
+
+.poster {
+	width:100px;
+}
+
+.margin-left-10 {
+	margin-left:10px;
+}
+
+
+.pad-8 {
+	padding:8px;
+}
+
+
+#searchBtn {
+	background-color: lime;
+	border-radius: 40%;
+	width: 100%;
+	height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+
+#searchBtn:hover {
+	font-weight: bold;
+	border-color: lime;
+	font-size: 20px;
+	color: black(255, 255, 255, 1);
+    box-shadow: 0 5px 15px lime;
+}
+
+#trailer-container{
+	color:white;
+}
+
+#backtotop {
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-large;
+	font-style: bold;
+}
+
+
+#backtotop:hover {
+	color:limegreen;
+}
+
+
+.footer {
+    margin-top: 28%;
+    padding: 20px;
+    background-color: lightgrey;
+	width: 100%;
+}
