@@ -63,11 +63,13 @@
       </nav>
 <br>
 <br>
+
+  
     <h1 class="maintitle" id="topofpage">Movie Mood Quiz</h1>
     <br>
     <h3 id="top">Answer a Few Questions To See Your Movie Recommendations!</h3>
     <br>
-    <div class="filters">
+    <div class="filters" id="quiz-container">
         <div class="pad-8">
             <fieldset id="fieldset1">
                 <legend>Please Select Ratings You Prefer:</legend>
@@ -343,17 +345,17 @@
         <br>
     </div>
 
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
-            crossorigin="anonymous"></script>
-    <script src="assets\js\quiz.js"></script>
 
 <!-- Trailer Container -->
-    <video class="container" id="trailer-container">Container for Trailers</video>
+    <video class="container" id="trailer-container" width="100%">Container for Trailers
+    <a href="youtube.com/watch?v=KQB_QvXMWXY">Click here to watch a trailer video!</a>
+      <source id="src"  src="youtube.com/watch?v=KQB_QvXMWXY" type="video">
+    </video>
+
     <br><br>
+
     <a href="#topofpage" id="backtotop">Back to Top</a>
+
     <footer class="footer">
         <div class="content has-text-centered">
           <p>
@@ -363,5 +365,12 @@
           </p>
         </div>
       </footer>
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+              integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+              crossorigin="anonymous"></script>
+      <script src="assets\js\quiz.js"></script>  
+      <script src="./assets/js/script.js"></script>  
 </body>
 </html>
