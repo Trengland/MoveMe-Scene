@@ -1,14 +1,6 @@
-#navmain {
-    padding: 10px;
-    background-color: white;
-    border-bottom: black 5px;
-    height: 65px;
-}
-
 .navbar {
 	width: 100%;
-	padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 0px;
 }
 
 .navbar-logo {
@@ -16,28 +8,34 @@
     width: 175px;
 }
 
-.navbar-item {
+#navbar-items {
     font-size: larger;
 }
 
-
-.navbar-button {
-    padding-top: 8px;
-    padding-right: 10px;
+.buttons {
+    padding: 10px;
 }
-
 
 #signupbutton {
     background-color: #1569C7;
+    padding-top: 30px;
+    padding-right: 10px;
+    padding-bottom: 30px;
 }
 
 #signupbutton:hover {
     color: black;
+    box-shadow: 10px 10px 10px black;
 }
 
 body {
-    color: #4a4a4a;
-    background-color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
     background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
     background: linear-gradient(rgba(58, 58, 58, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(rgba(58, 58, 58, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -48,6 +46,40 @@ body {
     font-weight: 400;
     line-height: 1.5;
 }
+
+.overlay {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.wrapper {
+    position: relative;
+    margin: 0 10px;
+}
+
+.letter {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.shadow {
+    position: relative;
+    font-size: 20px;
+    /* top: 2px; */
+    left: 2px;
+    color: #000;
+    opacity: 0.2;
+}
+
 
 
 .content h1 {
@@ -110,8 +142,8 @@ body {
 }
 
 .footer {
-    margin-top: 28%;
     padding: 20px;
     background-color: lightgrey;
+    width: 100%;
 }
 
