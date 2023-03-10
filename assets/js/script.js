@@ -1,17 +1,20 @@
+//importing quiz data 
+import('./quiz.js');
+
+
 // Variable as a place holder until Team Browns has their variable 
 let recommendedMovie = "Grease";
-let movieID = [];
-
+let movieID = "";
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
 let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
-let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
 
-// https://api.themoviedb.org/3/movie/{movie_id}/videos?api_key=87ceec9af92ce89acfb2e11778f0841f&language=en-US
 
-// Document Query Selector
-// let trailerContainerEl;
+// Variable Elements from HTML
+let trailerSourceEl = document.getElementById('#src');
+let trailerVideoEl = document.getElementById('video');
+let trailerContainerEl = document.getElementById('trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
@@ -47,24 +50,42 @@ function getMovieID (){
             response.json().then(function (data) {
                 console.log("API call was a success!");
                 console.log(data.results[0].id);
-                movieID.push(data.results[0].id);
-                // let variableID = ;
+                movieID=data.results[0].id;
+                Trailers(movieID);                
               });
             }      
         })
+    console.log(movieID)
     
-    Trailers();
 }
 
+console.log(movieID)
 
 // CL - Function for Trailers API
 // Function to populate Trailer with movie ID
-function Trailers () {
+
+function Trailers (movieID) {
+    console.log(movieID);
+    let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+    let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
+   
     fetch(trailerURL)
     .then(function(response){
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
+                // Pull they video key from the API Trailer Array
+                 let videoKey = data.results[0].key;
+                 console.log(videoKey);
+                //  Create the Youtube Link with the key of the video
+                let YoutubeLink = "youtube.com/watch?v=" + videoKey;
+                console.log(YoutubeLink);
+                // Update Trailer element in HTML to have the new Youtube Link
+                trailerSourceEl.setAttribute('src', YoutubeLink);
+                // trailerSourceEl.textContent = YoutubeLink;
+                trailerContainerEl.textContent = YoutubeLink;
+
+                
                   });
             }
             else {
@@ -73,19 +94,10 @@ function Trailers () {
         }
     )}
 
-
-
-
-// CL - Variables
-// let recommendedMovie = "Elf";
-// let apiKeyTMBD = ;
-// let queryURL = 'https://api.themoviedb.org/4/list/1?api_key=' + apiKeyTMBD;
-
-// CL - Function to call Trailers API
-
-
-
-//Log quiz question results 
+        // Function to play the movie trailer
+        function playTrailer (params) {
+            
+        }
 
 
 
