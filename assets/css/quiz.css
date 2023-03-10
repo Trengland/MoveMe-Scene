@@ -6,15 +6,18 @@
 	width: 100%;
 }
 
+
 .navbar {
 	width: 100%;
 	padding-top: 10px;
 }
 
+
 .navbar-logo {
     size: large;
     width: 175px;
 }
+
 
 .navbar-item {
     font-size: larger;
@@ -28,9 +31,8 @@
 
 
 .navbar-button :hover {
-    color: #f14668;
+    color: black;
 }
-
 
 
 
@@ -43,15 +45,48 @@ body {
   align-items: center;
   color: white;
   background-color: black;
+  background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
+  background: linear-gradient(rgba(12, 12, 12, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(rgba(12, 12, 12, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .maintitle {
-	font-size: 50px;
+	font-size: 70px;
 	color: white;
     font-weight: bold;
     line-height: 1.125;
-    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+    text-shadow: 5px 5px 4px rgb(60, 125, 245), 4px 4px 2px black;
+	text-transform: uppercase;
+  background-image: linear-gradient(
+    -125deg,
+    #231557 10%,
+    #44107a 29%,
+    #ff1361 67%,
+   	#FA8D12 82%,
+	#fff800 100%
+  );
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  text-emphasis-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  display: inline-block;
+  font-size: 100px;
 }
+
+@keyframes textclip {
+	to {
+	  background-position: 200% center;
+	}
+  }
+
 
 #top {
 	font-size: large;
@@ -59,6 +94,10 @@ body {
     font-weight: bold;
     line-height: 1.125;
     text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+}
+
+#signupbutton {
+    background-color: #1569C7;
 }
 
 
@@ -81,7 +120,7 @@ body {
 }
 
 .poster {
-	width:100px;
+	width:165px;
 }
 
 .margin-left-10 {
@@ -90,28 +129,81 @@ body {
 
 
 .pad-8 {
-	padding:8px;
+	padding:10px;
 }
+
 
 
 #searchBtn {
-	background-color: lime;
-	border-radius: 40%;
-	width: 100%;
-	height: 40px;
-	font-size: 18px;
-	font-weight: bold;
+  appearance: none;
+  background-color: #1569C7;
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(27, 31, 35, .15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, .1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
 }
 
+#searchBtn:focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
 
 #searchBtn:hover {
-	font-weight: bold;
-	border-color: lime;
-	font-size: 20px;
-	color: black(255, 255, 255, 1);
-    box-shadow: 0 5px 15px lime;
+  background-color: black;
+  font-style: bold;
+  font-size: 18px;
+  border-color: #1569C7;
+  box-shadow: 0 5px 15px black;
 }
 
+#searchBtn:focus {
+  box-shadow: rgba(0, 102, 255, 0.644) 0 0 0 3px;
+  outline: none;
+}
+
+#searchBtn:disabled {
+  background-color: #94d3a2;
+  border-color: rgba(27, 31, 35, .1);
+  color: rgba(255, 255, 255, .8);
+  cursor: default;
+}
+
+#searchBtn:active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
+}
+
+
+
+
+#results {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-right: 20%;
+	padding-left: 20%;
+	text-align: center;
+	font-size: 18px;
+}
 
 #backtotop {
 	color: white;
@@ -127,8 +219,7 @@ body {
 
 
 .footer {
-    margin-top: 28%;
-    padding: 20px;
+    padding: 18px;
     background-color: lightgrey;
 	width: 100%;
 }

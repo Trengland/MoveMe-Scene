@@ -67,7 +67,7 @@ $(function () {
 			var count = i + 1;
 
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
-			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text red-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
+			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
 			$("#results").append("<div class='pad-8'>" + overview + "</div><hr class='hr'>");
 		}
 	}
