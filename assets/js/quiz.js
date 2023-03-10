@@ -1,5 +1,4 @@
 let quizContainerEl = $("#quiz-container");
-console.log(quizContainerEl);
 
 quizContainerEl.css("disiplay", "block");
 
@@ -73,15 +72,18 @@ $(function () {
 			var count = i + 1;
 
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
-			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text red-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
+			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
 			$("#results").append("<div class='pad-8'>" + overview + "</div><hr class='hr'>");
+			console.log("title " + title);
+			getMovieID (title);
 		}
 
-		
+		// getMovieID (results.results[5].title);
 	}
 
+
+	// Hide the quiz questions when results are displayed
 	function hideQuiz() {
 		quizContainerEl.css("display", "none");
-		console.log("My hide quiz function was called");
 	}
 });
