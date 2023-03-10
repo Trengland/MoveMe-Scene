@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MoveMe Scene</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://kit.fontawesome.com/24a5ce4470.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
 
@@ -18,12 +19,12 @@
           <img src="./assets/images/moveme.jpg" href="#index.html" alt="MoveMe Scene Logo" width="112" height="28">
         </a>
 
-        <!-- Navbar Burger -->
-        <!-- <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <!-- Navbar Burger --> 
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
-        </a> -->
+        </a>
       </div>
       
       <!-- Navbar Items -->
@@ -50,15 +51,9 @@
             <!-- Buttons container -->
             <div class="buttons">
               <!-- Sign Up Button -->
-              <a id="signupbutton" class="button is-dark">
+              <a id="signupbutton" class="button is-dark js-modal-trigger" data-target="sign-up-modal">
                 <strong>Sign up for our weekly Newsletter!</strong>
               </a>
-              <div class="field">
-                <label class="label">Name</label>
-                <div class="control">
-                  <input class="input" type="text" placeholder="e.g Alex Smith">
-                </div>
-              </div>
             
               <!-- Log in Button -->
               <!-- <a class="button is-light">
@@ -101,18 +96,21 @@
     <div id="trending-movies">
     </div>
 
-    <!-- <div class="modal" id="sign-up-modal">
+    <div class="modal" id="sign-up-modal">
       <div class="modal-background"></div>
-      <div class="modal-content">
-        <div class="field">
-          <label class="label">Email</label>
-          <div class="control">
-            <input class="input" type="email" placeholder="e.g. alexsmith@gmail.com">
+      <div class="modal-content has-background-white py-5 px-5">
+        <form>
+          <div class="field">
+            <label class="label">Email:</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Email">
+            </div>
           </div>
+        </form>
+        <div class="has-text-centered">
+          <button class="button is-light mt-4">Sign Up</button>
         </div>
     </div>
-    <button class="modal-close is-large" aria-label="close"></button>
-  </div> -->
 
 
     <footer class="footer">
