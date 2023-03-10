@@ -3,7 +3,7 @@ import('./quiz.js');
 
 
 // Variable as a place holder until Team Browns has their variable 
-let recommendedMovie = "Grease";
+let recommendedMovie = "";
 let movieID = "";
 
 // API URL Variables
@@ -12,8 +12,9 @@ let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "
 
 
 // Variable Elements from HTML
-let trailerSourceEl = document.getElementById('#src');
+let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
+let linkTrailerEl = document.getElementById('link-to-trailer');
 let trailerContainerEl = document.getElementById('trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
@@ -42,7 +43,9 @@ console.log(movieID);
 getMovieID();
 
 // CL & SS - Function to call GET Search Movies to get Movie ID
-function getMovieID (){
+function getMovieID (title){
+    recommendedMovie = title;
+    console.log(title);
     fetch(idURL)
     .then(function(response){
         if (response.ok) {
@@ -67,7 +70,8 @@ console.log(movieID)
 function Trailers (movieID) {
     console.log(movieID);
     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
-    let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
+    // Chelsea's back up plan if trailerURL doesn't work
+    // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
     fetch(trailerURL)
     .then(function(response){
@@ -78,15 +82,14 @@ function Trailers (movieID) {
                  let videoKey = data.results[0].key;
                  console.log(videoKey);
                 //  Create the Youtube Link with the key of the video
-                let YoutubeLink = "youtube.com/watch?v=" + videoKey;
+                let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
                 // Update Trailer element in HTML to have the new Youtube Link
-                trailerSourceEl.setAttribute('src', YoutubeLink);
+                // trailerSourceEl.setAttribute('src', YoutubeLink);
                 // trailerSourceEl.textContent = YoutubeLink;
                 trailerContainerEl.textContent = YoutubeLink;
-
-                
-                  });
+                linkTrailerEl.href = YoutubeLink;
+                });
             }
             else {
                 console.log('getVideos API call not working');
