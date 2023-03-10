@@ -187,6 +187,7 @@ body {
   outline: none;
 }
 
+
 #searchBtn:disabled {
   background-color: #94d3a2;
   border-color: rgba(27, 31, 35, .1);
@@ -200,6 +201,10 @@ body {
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f3107f52af7cf70ef943635eb3b5c7c38152ac22
 #results {
 	display: flex;
 	flex-direction: column;
@@ -209,6 +214,9 @@ body {
 	padding-left: 20%;
 	text-align: center;
 	font-size: 18px;
+=======
+#trailer-container{
+	color:white;
 }
 
 

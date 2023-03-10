@@ -1,3 +1,7 @@
+let quizContainerEl = $("#quiz-container");
+
+quizContainerEl.css("disiplay", "block");
+
 $(function () {
 	const apiKey = "bb20124838543378f16ab68d72df5e76";
 
@@ -52,6 +56,7 @@ $(function () {
 
 		$.ajax(settings).done(function (response) {			
 			displayResults(response);
+			hideQuiz();
 		});
 	});
 
@@ -69,6 +74,16 @@ $(function () {
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
 			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
 			$("#results").append("<div class='pad-8'>" + overview + "</div><hr class='hr'>");
+			console.log("title " + title);
+			getMovieID (title);
 		}
+
+		// getMovieID (results.results[5].title);
+	}
+
+
+	// Hide the quiz questions when results are displayed
+	function hideQuiz() {
+		quizContainerEl.css("display", "none");
 	}
 });
