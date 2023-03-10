@@ -47,6 +47,40 @@ body {
     line-height: 1.5;
 }
 
+.overlay {
+    position: relative;
+}
+
+.text {
+    position: absolute;
+    top: 125%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+.wrapper {
+    position: relative;
+    margin: 0 10px;
+}
+
+.letter {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.shadow {
+    position: relative;
+    font-size: 20px;
+    /* top: 2px; */
+    left: 2px;
+    color: #000;
+    opacity: 0.2;
+}
+
+
 
 .content h1 {
     color: white;
