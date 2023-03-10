@@ -3,13 +3,12 @@ import('./quiz.js');
 
 
 // Variable as a place holder until Team Browns has their variable 
-let recommendedMovie = "";
+let recommendedMovie = "Grease";
 let movieID = "";
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
-let idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
-
+let idURL;
 
 // Variable Elements from HTML
 let trailerSourceEl = document.getElementById('src');
@@ -46,6 +45,7 @@ getMovieID();
 function getMovieID (title){
     recommendedMovie = title;
     console.log(title);
+    idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
     fetch(idURL)
     .then(function(response){
         if (response.ok) {
@@ -62,7 +62,7 @@ function getMovieID (title){
     
 }
 
-console.log(movieID)
+console.log(movieID);
 
 // CL - Function for Trailers API
 // Function to populate Trailer with movie ID
@@ -92,6 +92,7 @@ function Trailers (movieID) {
                 });
             }
             else {
+                linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
             }
         }
