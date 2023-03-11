@@ -68,7 +68,7 @@ $(function () {
 	function displayResults(results) {
 		console.log(results);
 		$("#results").empty();
-
+		// console.log("Called Display Results")
 		for (var i = 0; i < 5; i++) {
 			var title = results.results[i].title;
 			var overview = results.results[i].overview;
@@ -81,11 +81,10 @@ $(function () {
 			$("#results").append("<div class='pad-8'>" + overview + "</div><hr class='hr'>");
 			console.log("title" + title);
 			getMovieID (title);
-		}
 
 		// getMovieID (results.results[5].title);
+		}
 	}
-
 
 	// Hide the quiz questions when results are displayed
 	function hideQuiz() {

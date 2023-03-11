@@ -92,11 +92,12 @@ body {
 	width:100%;
 }
 
-.hr {
+/* Not sure what this was for - so commented it out - Chelsea */
+/* .hr {
 	font-size: 30px;
 	height: 50px;
 	color:limegreen;
-} 
+}  */
 
 .poster {
 	width:165px;
@@ -213,6 +214,19 @@ body {
 	padding-left: 20%;
 	text-align: center;
 	font-size: 18px;
+}
+
+h3 {
+	font-size: large;
+	color: white;
+    line-height: 1.125;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+}
+
+
+/* Trailer List styling for links */
+#link-to-trailer a {
+	color:white;
 }
 
 
