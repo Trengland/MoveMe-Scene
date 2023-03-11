@@ -160,9 +160,26 @@ let trendingListEl = $("#trending-container");
 
 $(function () {
     let trendingUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
+    let trendingImageUrl = "https://image.tmdb.org/t/p/original/"
     fetch(trendingUrl)
-    console.log(data);
-})
+    .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
+            console.log("Api call successful")
+            console.log(data.results);
+            
+          });
+        }
+});
+});
+
+// SM - Display Trending Movies Function
+function displayTrendingMoves(data) {
+    data.forEach(movie => {
+        
+
+    })
+}
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
