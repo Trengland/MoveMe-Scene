@@ -30,12 +30,18 @@ $(document).ready(function() {
       $(".navbar-menu").toggleClass("is-active");
 
   });
+});
 
-  // Check for click events on login button
-  $(".login-button").click(function() {
-    // Toggle is-active class on login modal
-    $(".modal-login")
-  })
+// Check for click events on signup button, pop up modal
+
+$("#signupbutton").click(function() {
+// Toggle is-active class on login modal
+$("#sign-up-modal").addClass("is-active");
+console.log("test");
+});
+
+$(".modal-background").click(function() {
+$("#sign-up-modal").removeClass("is-active");
 });
 
 // CL
