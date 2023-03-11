@@ -108,7 +108,10 @@ body {
     box-shadow: 5px 5px 15px black;
 }
 
-
+/* Remove numbers from the trailer list */
+#trailer-list {
+	list-style-type: none;
+}
 
 /* trying to figure out how to change design for Title & Overview */
 

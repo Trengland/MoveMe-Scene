@@ -102,6 +102,7 @@ function Trailers (movieID) {
                 let trailerListEl = document.createElement("ol");
                 // Add class to the trailerListEl
                 trailerListEl.setAttribute("class","pad-8");
+                trailerListEl.setAttribute("id","trailer-list");
                 // Creates trailer Link list Element
                 let li1 = document.createElement("li");
                 // Add text to link
