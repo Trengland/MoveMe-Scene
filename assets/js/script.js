@@ -47,7 +47,7 @@ $("#sign-up-modal").removeClass("is-active");
 console.log(movieID);
 
 // CL - call getMovie Function
-getMovieID();
+// getMovieID();
 
 // CL & SS - Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
@@ -95,36 +95,23 @@ function Trailers (movieID) {
                 let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
 
+                // Find organized list element
+                let trailerListEl = document.querySelector("#trailer-list");
+            
+                // Creates trailer Link list Element
+                let li1 = document.createElement("li");
+                // li1 = document.setAttribute("id", "list-item")
+
+                // // Add text to link
+                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+
+                // Append list items to ordered trailerListEl
+                trailerListEl.appendChild(li1);
+                
                 // Update Trailer element in HTML to have the new Youtube Link
                 // trailerSourceEl.setAttribute('src', YoutubeLink);
                 // trailerSourceEl.textContent = YoutubeLink;
                 // trailerContainerEl.textContent = YoutubeLink;
-                
-                // Create organized list element
-                let trailerListEl = document.createElement("ol");
-                // Add class to the trailerListEl
-                trailerListEl.setAttribute("class","pad-8");
-                trailerListEl.setAttribute("id","trailer-list");
-                // Creates trailer Link list Element
-                let li1 = document.createElement("li");
-                // Add text to link
-                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
-                // li1.textContent = "Watch the trailer video!"
-                // Update href link with new YoutubeLink Variable
-                // li1.href = "YoutubeLink";
-                // Appends trailer Link Element as a child of the results element
-                trailerEl.appendChild(trailerListEl);
-                // Append list items to ordered trailerListEl
-             
-                trailerListEl.appendChild(li1);
-            
-                // resultsEl.append(linkTrailerEl.href = YoutubeLink);
-
-                // 
-                // for (var i = 0; i < 5; i++) {
-                //     linkTrailerEl[i].href = YoutubeLink;
-                //     var count = i + 1;
-                // }
             });   
 
             } else {
