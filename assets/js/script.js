@@ -159,10 +159,9 @@ function Trailers (movieID) {
 let trendingListEl = $("#trending-container");
 
 $(function () {
-    let trendingUrl = "https://api.themovidedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
+    let trendingUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
     fetch(trendingUrl)
-    .then((response) => response.json())
-    .then((data) => console.log(data));
+    console.log(data);
 })
 
 // Get the <span> element that closes the modal
@@ -178,3 +177,4 @@ if (event.target == myModal) {
     myModal.style.display = "none";
 }
 }
+
