@@ -13,11 +13,10 @@ let idURL;
 // Variable Elements from HTML
 let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
-let linkTrailerEl1 = document.getElementById('link-to-trailer');
-let linkTrailerEl2 = document.getElementById('link-to-trailer2');
+let trailerEl = document.getElementById('link-to-trailer');
+let videoLink;
+// let trailerContainerEl = document.getElementById('trailer-container');
 
-
-let trailerContainerEl = document.getElementById('trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
@@ -93,22 +92,41 @@ function Trailers (movieID) {
                 //  Create the Youtube Link with the key of the video
                 let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
-                // Update Trailer element in HTML to have the new Youtube Link
-                trailerSourceEl.setAttribute('src', YoutubeLink);
-                // trailerSourceEl.textContent = YoutubeLink;
-                trailerContainerEl.textContent = YoutubeLink;
 
-                linkTrailerEl.href = YoutubeLink;
+                // Update Trailer element in HTML to have the new Youtube Link
+                // trailerSourceEl.setAttribute('src', YoutubeLink);
+                // trailerSourceEl.textContent = YoutubeLink;
+                // trailerContainerEl.textContent = YoutubeLink;
+                
+                // Create organized list element
+                let trailerListEl = document.createElement("ol");
+                // Add class to the trailerListEl
+                trailerListEl.setAttribute("class","pad-8");
+                // Creates trailer Link list Element
+                let li1 = document.createElement("li");
+                // Add text to link
+                li1.textContent = "Watch the trailer video!"
+                // Update href link with new YoutubeLink Variable
+                li1.href = YoutubeLink;
+                // Appends trailer Link Element as a child of the results element
+                trailerEl.appendChild(trailerListEl);
+                // Append list items to ordered trailerListEl
+                trailerListEl.appendChild(li1);
+                
+            
+                    
+
+                // resultsEl.append(linkTrailerEl.href = YoutubeLink);
 
                 // 
-                for (var i = 0; i < 5; i++) {
-                    linkTrailerEl[i].href = YoutubeLink;
-                    var count = i + 1;
-                }
+                // for (var i = 0; i < 5; i++) {
+                //     linkTrailerEl[i].href = YoutubeLink;
+                //     var count = i + 1;
+                // }
             });   
 
             } else {
-                linkTrailerEl.css("display", "none");
+                // linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
             }
         
