@@ -18,7 +18,7 @@ let videoLink;
 // let trailerContainerEl = document.getElementById('trailer-container');
 
 
-// Mobile Menu -- Code from Bulma documentation example js
+// SM - Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
 
   // Check for click events on the navbar burger icon
@@ -31,7 +31,7 @@ $(document).ready(function() {
   });
 });
 
-// Check for click events on signup button, pop up modal
+// SM - Check for click events on signup button, pop up modal
 
 $("#signupbutton").click(function() {
 // Toggle is-active class on login modal
@@ -142,5 +142,11 @@ function Trailers (movieID) {
             
         }
 
+// SM - Function for trending movie data
+let trendingListEl = $("#trending-container");
 
+$(function () {
+    let trendingUrl = "https://api.themovidedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
+    fetch(trendingUrl);
+})
 
