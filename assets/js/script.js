@@ -89,6 +89,8 @@ function Trailers (movieID) {
                 // Pull they video key from the API Trailer Array
                  let videoKey = data.results[0].key;
                 //  console.log(videoKey);
+                let trailerMovieName =data.results[0].name;
+                console.log(trailerMovieName);
                 //  Create the Youtube Link with the key of the video
                 let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
@@ -106,7 +108,7 @@ function Trailers (movieID) {
                 // Creates trailer Link list Element
                 let li1 = document.createElement("li");
                 // Add text to link
-                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video!</a>'
+                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
                 // li1.textContent = "Watch the trailer video!"
                 // Update href link with new YoutubeLink Variable
                 // li1.href = "YoutubeLink";
