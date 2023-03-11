@@ -13,7 +13,10 @@ let idURL;
 // Variable Elements from HTML
 let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
-let linkTrailerEl = document.getElementById('link-to-trailer');
+let linkTrailerEl1 = document.getElementById('link-to-trailer');
+let linkTrailerEl2 = document.getElementById('link-to-trailer2');
+
+
 let trailerContainerEl = document.getElementById('trailer-container');
 
 // Mobile Menu -- Code from Bulma documentation example js
@@ -80,16 +83,22 @@ function Trailers (movieID) {
                     console.log(data);
                 // Pull they video key from the API Trailer Array
                  let videoKey = data.results[0].key;
-                 console.log(videoKey);
+                //  console.log(videoKey);
                 //  Create the Youtube Link with the key of the video
                 let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
                 console.log(YoutubeLink);
                 // Update Trailer element in HTML to have the new Youtube Link
-                // trailerSourceEl.setAttribute('src', YoutubeLink);
+                trailerSourceEl.setAttribute('src', YoutubeLink);
                 // trailerSourceEl.textContent = YoutubeLink;
                 trailerContainerEl.textContent = YoutubeLink;
+
                 linkTrailerEl.href = YoutubeLink;
-                });
+
+                // 
+                for (var i = 0; i < 5; i++) {
+                    linkTrailerEl[i].href = YoutubeLink;
+                    var count = i + 1;
+                }
             }
             else {
                 linkTrailerEl.css("display", "none");
