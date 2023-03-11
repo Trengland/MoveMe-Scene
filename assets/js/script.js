@@ -105,13 +105,17 @@ function Trailers (movieID) {
                     linkTrailerEl[i].href = YoutubeLink;
                     var count = i + 1;
                 }
-            }
-            else {
+            });   
+
+            } else {
                 linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
             }
-        }
-    )}
+        
+    })
+
+
+}    
 
         // Function to play the movie trailer
         function playTrailer (params) {
