@@ -90,7 +90,7 @@ $(function () {
 	// Hide the quiz questions when results are displayed
 	function hideQuiz() {
 		quizContainerEl.css("display", "none");
-		// resultsContainerEl.css("display", "block");
+		resultsContainerEl.css("display", "block");
 		trailerContainerEl.css("display","block");
 
 	}
