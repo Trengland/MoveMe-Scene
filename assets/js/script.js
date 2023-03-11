@@ -115,7 +115,6 @@ function Trailers (movieID) {
                 
             
                     
-
                 // resultsEl.append(linkTrailerEl.href = YoutubeLink);
 
                 // 
