@@ -1,3 +1,29 @@
+//modal adi movie quotes
+const settings = {
+    "async": true,
+    "crossDomain": true,
+    "url": "https://quotable-api-motivational-funny-and-movie-quotes.p.rapidapi.com/movie_quotes",
+    "method": "GET",
+    "headers": {
+        "X-RapidAPI-Key": 
+    "837b163db4msh9ad161c9bfcd50cp1fa0d6jsncd86d97e9bd7",
+            "X-RapidAPI-Host": 
+    "quotable-api-motivational-funny-and-movie-quotes.p.rapidapi.com"
+        }
+    };
+//displaying results in modal of info pulled from api
+    $.ajax(settings).done(function (response) {
+        console.log(response);
+        var modal = document.getElementById("myModal");
+        var btn = document.getElementById("myBtn");
+        btn.onclick = function() {
+            modal.style.display = "block";}
+        $("#movieQuote").append(response.quote);
+        $("#movie").append(response.movie);
+    });
+
+
+
 //importing quiz data 
 import('./quiz.js');
 
@@ -137,3 +163,16 @@ $(function () {
     fetch(trendingUrl);
 })
 
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+myModal.style.display = "none";
+}
+
+//  close it 
+window.onclick = function (event) {
+if (event.target == myModal) {
+    myModal.style.display = "none";
+}
+}
