@@ -1,10 +1,13 @@
 let quizContainerEl = $("#quiz-container");
 let trailerContainerEl= $('#link-to-trailer');
 let resultsContainerEl = $("#results");
+let resultsTitleEl = $("#recommended-title");
 
 quizContainerEl.css("disiplay", "block");
 resultsContainerEl.css("display", "none");
+resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
+
 
 
 $(function () {
@@ -62,6 +65,7 @@ $(function () {
 		$.ajax(settings).done(function (response) {			
 			displayResults(response);
 			hideQuiz();
+			addRecommendedTitle();
 		});
 	});
 
@@ -90,7 +94,17 @@ $(function () {
 	function hideQuiz() {
 		quizContainerEl.css("display", "none");
 		resultsContainerEl.css("display", "block");
+		resultsTitleEl.css("display", "block");
 		trailerContainerEl.css("display","block");
 
+	}
+
+	function addRecommendedTitle (){
+		// Create an h3 to replace the title at top of movie results
+		let recommendedMoviesTitleEl = document.createElement("h3");
+		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
+		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+		// Append list items to ordered trailerListEl
+		 recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
 	}
 });

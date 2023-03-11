@@ -41,6 +41,7 @@ let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
 let videoLink;
+let recommendedTitleEl = document.getElementById("recommended-title");
 // let trailerContainerEl = document.getElementById('trailer-container');
 
 
@@ -88,14 +89,12 @@ function getMovieID (title){
               });
             }      
         })
-    console.log(movieID)
 }
 
 
 
 // Function to populate Trailer with movie ID
 function Trailers (movieID) {
-    console.log(movieID);
     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
     // Chelsea's back up plan if trailerURL doesn't work
     // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
