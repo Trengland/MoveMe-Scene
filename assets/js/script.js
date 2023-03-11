@@ -105,7 +105,7 @@ function Trailers (movieID) {
                 // Creates trailer Link list Element
                 let li1 = document.createElement("li");
                 // Add text to link
-                // li1.innerHTML = '<a href="YoutubeLink">Watch the trailer video!</a>'
+                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video!</a>'
                 // li1.textContent = "Watch the trailer video!"
                 // Update href link with new YoutubeLink Variable
                 // li1.href = "YoutubeLink";
@@ -114,7 +114,6 @@ function Trailers (movieID) {
                 // Append list items to ordered trailerListEl
              
                 trailerListEl.appendChild(li1);
-                
             
                 // resultsEl.append(linkTrailerEl.href = YoutubeLink);
 
