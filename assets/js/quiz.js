@@ -3,7 +3,7 @@ let trailerContainerEl= $('#link-to-trailer');
 let resultsContainerEl = $("#results");
 
 quizContainerEl.css("disiplay", "block");
-// resultsContainerEl.css("display", "none");
+resultsContainerEl.css("display", "none");
 trailerContainerEl.css("display","none");
 
 
