@@ -69,13 +69,9 @@ $(".modal-background").click(function() {
 $("#sign-up-modal").removeClass("is-active");
 });
 
-// CL
-console.log(movieID);
 
-// CL - call getMovie Function
-// getMovieID();
 
-// CL & SS - Function to call GET Search Movies to get Movie ID
+// Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
     recommendedMovie = title;
     console.log(title);
@@ -93,14 +89,11 @@ function getMovieID (title){
             }      
         })
     console.log(movieID)
-    
 }
 
-console.log(movieID);
 
-// CL - Function for Trailers API
+
 // Function to populate Trailer with movie ID
-
 function Trailers (movieID) {
     console.log(movieID);
     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
@@ -144,16 +137,8 @@ function Trailers (movieID) {
                 // linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
             }
-        
     })
-
-
 }    
-
-        // Function to play the movie trailer
-        function playTrailer (params) {
-            
-        }
 
 // SM - Function for trending movie data
 let trendingListEl = $("#trending-container");
