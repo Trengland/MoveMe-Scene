@@ -24,25 +24,25 @@ const settings = {
 
 
 
-//importing quiz data 
-import('./quiz.js');
+// //importing quiz data 
+// import('./quiz.js');
 
 
-// Variable as a place holder until Team Browns has their variable 
-let recommendedMovie = "Grease";
-let movieID = "";
+// // Variable as a place holder until Team Browns has their variable 
+// let recommendedMovie = "Grease";
+// let movieID = "";
 
-// API URL Variables
-let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
-let idURL;
+// // API URL Variables
+// let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
+// let idURL;
 
-// Variable Elements from HTML
-let trailerSourceEl = document.getElementById('src');
-let trailerVideoEl = document.getElementById('video');
-let trailerEl = document.getElementById('link-to-trailer');
-let videoLink;
-let recommendedTitleEl = document.getElementById("recommended-title");
-// let trailerContainerEl = document.getElementById('trailer-container');
+// // Variable Elements from HTML
+// let trailerSourceEl = document.getElementById('src');
+// let trailerVideoEl = document.getElementById('video');
+// let trailerEl = document.getElementById('link-to-trailer');
+// let videoLink;
+// let recommendedTitleEl = document.getElementById("recommended-title");
+// // let trailerContainerEl = document.getElementById('trailer-container');
 
 
 // SM - Mobile Menu -- Code from Bulma documentation example js
@@ -72,74 +72,74 @@ $("#sign-up-modal").removeClass("is-active");
 
 
 
-// Function to call GET Search Movies to get Movie ID
-function getMovieID (title){
-    recommendedMovie = title;
-    console.log(title);
-    idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
-    fetch(idURL)
-    .then(function(response){
-        if (response.ok) {
-            // need to look at other examples to make sure the .then below is correct as instructor said this isn't happening
-            response.json().then(function (data) {
-                console.log("API call was a success!");
-                console.log(data.results[0].id);
-                movieID=data.results[0].id;
-                Trailers(movieID);                
-              });
-            }      
-        })
-}
+// // Function to call GET Search Movies to get Movie ID
+// function getMovieID (title){
+//     recommendedMovie = title;
+//     console.log(title);
+//     idURL= "https://api.themoviedb.org/3/search/movie?api_key=" + apiKeyTMBD + "&language=en-US&query=" + recommendedMovie + "&page=1&include_adult=false";
+//     fetch(idURL)
+//     .then(function(response){
+//         if (response.ok) {
+//             // need to look at other examples to make sure the .then below is correct as instructor said this isn't happening
+//             response.json().then(function (data) {
+//                 console.log("API call was a success!");
+//                 console.log(data.results[0].id);
+//                 movieID=data.results[0].id;
+//                 Trailers(movieID);                
+//               });
+//             }      
+//         })
+// }
 
 
 
-// Function to populate Trailer with movie ID
-function Trailers (movieID) {
-    let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
-    // Chelsea's back up plan if trailerURL doesn't work
-    // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
+// // Function to populate Trailer with movie ID
+// function Trailers (movieID) {
+//     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+//     // Chelsea's back up plan if trailerURL doesn't work
+//     // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
-    fetch(trailerURL)
-    .then(function(response){
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                // Pull they video key from the API Trailer Array
-                 let videoKey = data.results[0].key;
-                //  console.log(videoKey);
-                let trailerMovieName =data.results[0].name;
-                console.log(trailerMovieName);
-                //  Create the Youtube Link with the key of the video
-                let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-                console.log(YoutubeLink);
+//     fetch(trailerURL)
+//     .then(function(response){
+//             if (response.ok) {
+//                 response.json().then(function (data) {
+//                     console.log(data);
+//                 // Pull they video key from the API Trailer Array
+//                  let videoKey = data.results[0].key;
+//                 //  console.log(videoKey);
+//                 let trailerMovieName =data.results[0].name;
+//                 console.log(trailerMovieName);
+//                 //  Create the Youtube Link with the key of the video
+//                 let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+//                 console.log(YoutubeLink);
 
-                // Find organized list element
-                let trailerListEl = document.querySelector("#trailer-list");
+//                 // Find organized list element
+//                 let trailerListEl = document.querySelector("#trailer-list");
             
-                // Creates trailer Link list Element
-                let li1 = document.createElement("li");
-                // li1 = document.setAttribute("id", "list-item")
+//                 // Creates trailer Link list Element
+//                 let li1 = document.createElement("li");
+//                 // li1 = document.setAttribute("id", "list-item")
 
-                // // Add text to link
-                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+//                 // // Add text to link
+//                 li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
 
-                // Append list items to ordered trailerListEl
-                trailerListEl.appendChild(li1);
+//                 // Append list items to ordered trailerListEl
+//                 trailerListEl.appendChild(li1);
                 
-                // Update Trailer element in HTML to have the new Youtube Link
-                // trailerSourceEl.setAttribute('src', YoutubeLink);
-                // trailerSourceEl.textContent = YoutubeLink;
-                // trailerContainerEl.textContent = YoutubeLink;
-            });   
+//                 // Update Trailer element in HTML to have the new Youtube Link
+//                 // trailerSourceEl.setAttribute('src', YoutubeLink);
+//                 // trailerSourceEl.textContent = YoutubeLink;
+//                 // trailerContainerEl.textContent = YoutubeLink;
+//             });   
 
-            } else {
-                // linkTrailerEl.css("display", "none");
-                console.log('getVideos API call not working');
+//             } else {
+//                 // linkTrailerEl.css("display", "none");
+//                 console.log('getVideos API call not working');
 
-            }
+//             }
 
-    })
-}    
+//     })
+// }    
 
 // SM - Function for trending movie data
 let trendingListEl = $("#trending-container");
