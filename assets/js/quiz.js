@@ -1,10 +1,13 @@
 let quizContainerEl = $("#quiz-container");
 let trailerContainerEl= $('#link-to-trailer');
 let resultsContainerEl = $("#results");
+let resultsTitleEl = $("#recommended-title");
 
-quizContainerEl.css("disiplay", "block");
+quizContainerEl.css("display", "block");
 resultsContainerEl.css("display", "none");
+resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
+
 
 
 $(function () {
@@ -16,9 +19,9 @@ $(function () {
 		var releaseDateStart = $("#release-start").val();
 		var releaseDateEnd = $("#release-end").val();
 		var runtimeLTE = $("#runtime").val();
-		var genereIds = "";
+		var genreIds = "";
 		$("input[name='genres']:checked").each(function () {
-			genereIds += $(this).val() + "|";
+			genreIds += $(this).val() + "|";
 		});
 
 		var certString = "";
@@ -49,7 +52,7 @@ $(function () {
 		 */
 
 		var baseURL = "https://api.themoviedb.org/3/discover/movie?api_key=" + apiKey + "&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=true&page=1&with_original_language=en&";
-		var variables = "release_date.gte=" + releaseDateStart + "&release_date.lte=" + releaseDateEnd  + "&with_genres=" + genereIds  + "&with_runtime.lte=" + runtimeLTE + "&certification_country=US&certification=" + certString;
+		var variables = "release_date.gte=" + releaseDateStart + "&release_date.lte=" + releaseDateEnd  + "&with_genres=" + genreIds  + "&with_runtime.lte=" + runtimeLTE + "&certification_country=US&certification=" + certString;
 
 		const settings = {
 			"async": true,
@@ -62,6 +65,7 @@ $(function () {
 		$.ajax(settings).done(function (response) {			
 			displayResults(response);
 			hideQuiz();
+			addRecommendedTitle();
 		});
 	});
 
@@ -92,5 +96,15 @@ $(function () {
 		resultsContainerEl.css("display", "block");
 		trailerContainerEl.css("display","block");
 
+	}
+}
+
+	function addRecommendedTitle (){
+		// Create an h3 to replace the title at top of movie results
+		let recommendedMoviesTitleEl = document.createElement("h3");
+		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
+		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+		// Append list items to ordered trailerListEl
+		recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
 	}
 });

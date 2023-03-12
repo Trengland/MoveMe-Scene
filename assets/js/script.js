@@ -41,6 +41,7 @@ let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
 let videoLink;
+let recommendedTitleEl = document.getElementById("recommended-title");
 // let trailerContainerEl = document.getElementById('trailer-container');
 
 
@@ -69,11 +70,7 @@ $(".modal-background").click(function() {
 $("#sign-up-modal").removeClass("is-active");
 });
 
-// CL
-console.log(movieID);
 
-// CL - call getMovie Function
-// getMovieID();
 
 // CL & SS - Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
@@ -92,17 +89,12 @@ function getMovieID (title){
               });
             }      
         })
-    console.log(movieID)
-    
 }
 
-console.log(movieID);
 
-// CL - Function for Trailers API
+
 // Function to populate Trailer with movie ID
-
 function Trailers (movieID) {
-    console.log(movieID);
     let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
     // Chelsea's back up plan if trailerURL doesn't work
     // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
@@ -143,42 +135,40 @@ function Trailers (movieID) {
             } else {
                 // linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
-            }
-        
+            }    
     })
-
-
 }    
-
-        // Function to play the movie trailer
-        function playTrailer (params) {
-            
-        }
 
 // SM - Function for trending movie data
 let trendingListEl = $("#trending-container");
+let trendingImageUrl = "https://image.tmdb.org/t/p/w300/"
+let trendingUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
 
 $(function () {
-    let trendingUrl = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKeyTMBD + "&language=en-US&page=1";
-    let trendingImageUrl = "https://image.tmdb.org/t/p/original/"
     fetch(trendingUrl)
     .then(function (response) {
         if (response.ok) {
           response.json().then(function (data) {
             console.log("Api call successful")
             console.log(data.results);
-            
+            displayTrendingMovies(data);
           });
         }
-});
+    });
 });
 
 // SM - Display Trending Movies Function
-function displayTrendingMoves(data) {
-    data.forEach(movie => {
-        
+function displayTrendingMovies(data) {
+    for (let i = 0; i < 20; i++) {
+        let trendingPoster = data.results[i].poster_path;
+        let trendingTitle = data.results[i].title;
+        let trendingOverview = data.results[i].overview;
 
-    })
+        let trendingCardEl = document.createElement('div');
+        trendingCardEl.setAttribute('class', 'column is-half p-5');
+        trendingCardEl.innerHTML = "<div class='card is-fullheight p-4'><div class='card-image'><img src=" + trendingImageUrl + trendingPoster + "></div><div class='card-content'><p class='title'>" + trendingTitle + "</p></div><div><p class='subtitle has-text-left'>" + trendingOverview + "</p></div></div>"
+        trendingListEl.append(trendingCardEl);
+    } 
 }
 
 // Get the <span> element that closes the modal

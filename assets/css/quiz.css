@@ -80,7 +80,15 @@ body {
   }
 
 
-#top {
+/* #top {
+	font-size: large;
+	color: white;
+    line-height: 1.125;
+    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
+} */
+
+/* Added a class to H3 elements in Quiz html so I could style them all the same */
+.is-size-3 {
 	font-size: large;
 	color: white;
     line-height: 1.125;
@@ -91,13 +99,6 @@ body {
 #fieldset1, #fieldset2 {
 	width:100%;
 }
-
-/* Not sure what this was for - so commented it out - Chelsea */
-/* .hr {
-	font-size: 30px;
-	height: 50px;
-	color:limegreen;
-}  */
 
 .poster {
 	width:165px;
@@ -214,13 +215,6 @@ body {
 	padding-left: 20%;
 	text-align: center;
 	font-size: 18px;
-}
-
-h3 {
-	font-size: large;
-	color: white;
-    line-height: 1.125;
-    text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
 }
 
 
