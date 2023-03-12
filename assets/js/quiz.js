@@ -104,6 +104,6 @@ $(function () {
 		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
 		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
 		// Append list items to ordered trailerListEl
-		recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
+
 	}
 });

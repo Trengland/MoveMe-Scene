@@ -135,7 +135,7 @@ function Trailers (movieID) {
             } else {
                 // linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
-            }    
+                
     })
 }    
 
