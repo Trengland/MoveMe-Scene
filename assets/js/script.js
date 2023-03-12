@@ -72,7 +72,7 @@ $("#sign-up-modal").removeClass("is-active");
 
 
 
-// CL & SS - Function to call GET Search Movies to get Movie ID
+// Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
     recommendedMovie = title;
     console.log(title);
@@ -135,7 +135,9 @@ function Trailers (movieID) {
             } else {
                 // linkTrailerEl.css("display", "none");
                 console.log('getVideos API call not working');
-                
+
+            }
+
     })
 }    
 

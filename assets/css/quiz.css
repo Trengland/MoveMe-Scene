@@ -88,6 +88,7 @@ body {
 } */
 
 
+/* Added a class to H3 elements in Quiz html so I could stytle them all the same */
 .is-size-3 {
 	font-size: large;
 	color: white;

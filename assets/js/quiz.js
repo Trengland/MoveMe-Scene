@@ -94,6 +94,7 @@ $(function () {
 	function hideQuiz() {
 		quizContainerEl.css("display", "none");
 		resultsContainerEl.css("display", "block");
+		resultsTitleEl.css("display", "block");
 		trailerContainerEl.css("display","block");
 
 	}
@@ -104,6 +105,8 @@ $(function () {
 		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
 		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
 		// Append list items to ordered trailerListEl
+
+		 recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
 
 	}
 });
