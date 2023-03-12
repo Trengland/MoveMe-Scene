@@ -97,7 +97,6 @@ $(function () {
 		trailerContainerEl.css("display","block");
 
 	}
-}
 
 	function addRecommendedTitle (){
 		// Create an h3 to replace the title at top of movie results
