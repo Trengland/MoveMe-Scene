@@ -106,6 +106,7 @@ $(function () {
 			getMovieID (title);
 		}
 	}
+})
 
 // Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
@@ -138,53 +139,56 @@ function Trailers (movieID) {
     .then(function(response){
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log(data);
-                // // Pull they video key from the API Trailer Array
-                //  let videoKey = data.results[0].key;
-				 console.log("testtttt")
-					
-				 	// function createTrailerElement () {
-						if (data.results =[]) {
-							// Creates paragraph element
-							let noVideosFound = document.createElement("p");
-
-							// Add text to paragraph element
-							noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
-		
-							// Append paragraph element to trailerListEl
-							trailerEl.appendChild(noVideosFound);
-						}
-
-						else {
-							// Pull they video key from the API Trailer Array
-							let videoKey = data.results[0].key;	
-
-							let trailerMovieName =data.results[0].name;
-							console.log(trailerMovieName);
-							//  Create the Youtube Link with the key of the video
-							let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-							console.log(YoutubeLink);
-
-							// Find organized list element
-							let trailerListEl = document.querySelector("#trailer-list");
-					
-							// Creates trailer Link list Element
-							let li1 = document.createElement("li");
-							// li1 = document.setAttribute("id", "list-item")
-
-							// // Add text to link
-							li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
-
-							// Append list items to ordered trailerListEl
-							trailerListEl.appendChild(li1);
-						}
-
-				 	// }	
-            
-            	})	
-    		}
-	}) 
+                	console.log(data);
+					// // Pull they video key from the API Trailer Array
+					// let videoKey = data.results[0].key;	
+					createTrailerElement(data);
+				});
+			} else {
+				console.log("error");	
+			}  
+		}); 	
 };	   
+
+// Function to create an element under Video Trailers if the trailers API call was successful
+function createTrailerElement (data) {
+	// Pull they video key from the API Trailer Array
+	let videoKey = data.results[0].key;	
+	if (data.results.length = 0) {
+		// Creates paragraph element
+		let noVideosFound = document.createElement("p");
+
+		// Add text to paragraph element
+		noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
+
+		// Append paragraph element to trailerListEl
+		trailerEl.appendChild(noVideosFound);
+	}
+
+	else {
+		// Pull they video key from the API Trailer Array
+		let videoKey = data.results[0].key;	
+
+		let trailerMovieName =data.results[0].name;
+		console.log(trailerMovieName);
+		//  Create the Youtube Link with the key of the video
+		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+		console.log(YoutubeLink);
+
+		// Find organized list element
+		let trailerListEl = document.querySelector("#trailer-list");
+
+		// Creates trailer Link list Element
+		let li1 = document.createElement("li");
+		// li1 = document.setAttribute("id", "list-item")
+
+		// // Add text to link
+		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+
+		// Append list items to ordered trailerListEl
+		trailerListEl.appendChild(li1);
+	}
+};	
 
 // Hide the quiz questions when results are displayed
 function hideQuiz() {
