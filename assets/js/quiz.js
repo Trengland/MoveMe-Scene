@@ -1,7 +1,7 @@
 
 // Starter Variables
 let recommendedMovie = "";
-let movieID = "";
+// let movieID = "";
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
@@ -120,7 +120,7 @@ function getMovieID (title){
             response.json().then(function (data) {
                 console.log("API call was a success!");
                 console.log(data.results[0].id);
-                movieID=data.results[0].id;
+                let movieID=data.results[0].id;
                 Trailers(movieID);                
               });
             }      
@@ -138,10 +138,9 @@ function Trailers (movieID) {
     fetch(trailerURL)
     .then(function(response){
             if (response.ok) {
-                response.json().then(function (data) {
-                	console.log(data);
-					// // Pull they video key from the API Trailer Array
-					// let videoKey = data.results[0].key;	
+                response.json()
+				.then(function (data) {
+                	console.log(data);	
 					createTrailerElement(data);
 				});
 			} else {
@@ -153,13 +152,18 @@ function Trailers (movieID) {
 // Function to create an element under Video Trailers if the trailers API call was successful
 function createTrailerElement (data) {
 	// Pull they video key from the API Trailer Array
-	let videoKey = data.results[0].key;	
-	if (data.results.length = 0) {
+	// let videoKey = data.results[0].key;	
+
+	
+	console.log(data);
+	if (data.results.length === 0) {
+
+
 		// Creates paragraph element
 		let noVideosFound = document.createElement("p");
 
 		// Add text to paragraph element
-		noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
+		noVideosFound.textContent= 'Unfortunately, there are no videos trailers for the movie'
 
 		// Append paragraph element to trailerListEl
 		trailerEl.appendChild(noVideosFound);
