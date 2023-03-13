@@ -159,13 +159,13 @@ function createTrailerElement (data) {
 	
 	console.log(data);
 	if (data.results.length === 0) {
-
+		console.log(data.results)
 
 		// Creates paragraph element
 		let noVideosFound = document.createElement("p");
 
 		// Add text to paragraph element
-		noVideosFound.textContent= 'Unfortunately, there are no videos trailers for the movie'
+		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
 		// Append paragraph element to trailerListEl
 		trailerEl.appendChild(noVideosFound);
