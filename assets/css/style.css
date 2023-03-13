@@ -210,17 +210,21 @@ body {
 
 /* Mobile Styling */
 @media screen and (min-width: 320px) and (max-width: 480px) { 
-    #homepage {
-        /* display: inline-block; */
-    
+   #welcome{
+    font-size: 10px !important;
+   }
+   
+    .letter {
+    font-size: 20px !important;
+
     }
 
-    .is-size-1 {
-        /* font-size: ; */
-    }
+    .shadow {
+        font-size: 10px !important;
+        }
 
-    .text{
-        /* transform: value;
-        font-size: .5vw; */
+    .wrapper{
+        padding: 0%;
+        margin: 5px;
     }
 }
