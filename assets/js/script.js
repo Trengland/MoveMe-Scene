@@ -63,6 +63,6 @@ $("#sign-up-modal").removeClass("is-active");
 // SM - Local Storage of Emails
 $("#submit-button").click(function() {
 let email = document.querySelector(".email-input");
-localStorage.setItem(email, email.value);
+localStorage.setItem("userEmail", email.value);
 console.log(localStorage);
 });
