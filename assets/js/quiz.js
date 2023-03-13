@@ -11,21 +11,22 @@ let idURL;
 let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
-let videoLink;
 let recommendedTitleEl = document.getElementById("recommended-title");
-// let trailerContainerEl = document.getElementById('trailer-container');
+
 
 // Variables defined to show & hide HTML elements on page
 let quizContainerEl = $("#quiz-container");
 let trailerContainerEl= $('#link-to-trailer');
 let resultsContainerEl = $("#results");
 let resultsTitleEl = $("#recommended-title");
+let takeQuizEl = $("#take-quiz-again");
 
 
 quizContainerEl.css("display", "block");
 resultsContainerEl.css("display", "none");
 resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
+takeQuizEl.css("display","none");
 
 
 
@@ -198,6 +199,7 @@ function hideQuiz() {
 	resultsContainerEl.css("display", "block");
 	resultsTitleEl.css("display", "block");
 	trailerContainerEl.css("display","block");
+	takeQuizEl.css("display","block");
 };
 
 function addRecommendedTitle (){
