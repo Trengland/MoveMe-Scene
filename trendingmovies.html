@@ -5,32 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>MoveMe Scene - Top Movies</title>
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css"/>
   </head>
 
   <body>
     <!-- NavBar - Code modified from bulma.io/documentation -->
-    <nav id="navmain" class="navbar" role="navigation" aria-label="main navigation">
+    <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <!-- Logo -->
         <a class="navbar-logo" href="index.html">
-        <img src="assets\images\moveme.jpg" href="index.html" alt="MoveMe Scene Logo">
+          <img src="./assets/images/moveme.jpg" href="#index.html" alt="MoveMe Scene Logo">
         </a>
-    
-        <!-- Navbar Burger -->
+
+       
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </a>
       </div>
-    
+      
       <!-- Navbar Items -->
       <div id="navbar-items" class="navbar-menu">
-        <!-- Items at Start (left side) of Navbar -->
+        <!-- Items at Start of Navbar -->
         <div class="navbar-start">
-          
+
           <a class="navbar-item" href="index.html">
             Home
           </a>
@@ -38,46 +39,25 @@
           <a class="navbar-item" href="trendingmovies.html">
             Trending Movies
           </a>
-          
-          <a class="navbar-item" href="quiz.html">
+    
+          <a id="quizbutton" class="navbar-item" href="quiz.html">
             Movie Mood Quiz
           </a>
         </div>
-
-          <!-- Dropdown -->
-          <!-- <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              More
-            </a>
-            
-            <div class="navbar-dropdown">
-              <-- About Item -->
-              <!-- <a class="navbar-item">
-                About
-              </a>
-              <-- Contact Us Item -->
-              <!-- <a class="navbar-item">
-                Contact Us
-              </a> -->
-            </div>
-          </div>
-        </div>
-        <!-- Items at End (right side) of Navbar -->
+        
+        <!-- Sign up and Log in buttons at End of Navbar-->
         <div class="navbar-end">
-          <!-- Buttons Item -->
           <div class="navbar-button">
             <!-- Buttons container -->
             <div class="buttons">
-
-
               <!-- Sign Up Button -->
               <a id="signupbutton" class="button is-dark">
-                <strong>Sign up for our Weekly Newsletter</strong>
+                <strong>Sign up for our Weekly Newsletter!</strong>
               </a>
-
+            
               <!-- Log in Button -->
               <!-- <a class="button is-light">
-                Log in
+              Log in
               </a> -->
             </div>
           </div>
@@ -92,7 +72,7 @@
   
       <!-- Trending Movies Container -->
       <div class="content container">
-        <div class="mt-5 columns is-multiline is-mobile" id="trending-container">
+        <div class="mt-5 columns is-multiline" id="trending-container">
         </div>
       </div>
 
@@ -141,5 +121,6 @@
     
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
+  <script src="./assets/js/trending.js"></script>
   </body>
 </html>
