@@ -211,20 +211,16 @@ body {
 /* Mobile Styling */
 @media screen and (min-width: 320px) and (max-width: 480px) { 
     #homepage {
-        display: inline-block;
+        /* display: inline-block; */
     
-       
-
     }
 
     .is-size-1 {
-        font-size: ;
+        /* font-size: ; */
     }
 
     .text{
-        transform: value;
-        font-size: .5vw;
-
-
+        /* transform: value;
+        font-size: .5vw; */
     }
 }

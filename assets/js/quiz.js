@@ -1,7 +1,7 @@
 
 // Starter Variables
 let recommendedMovie = "";
-let movieID = "";
+// let movieID = "";
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
@@ -108,6 +108,7 @@ $(function () {
 			getMovieID (title);
 		}
 	}
+})
 
 // Function to call GET Search Movies to get Movie ID
 function getMovieID (title){
@@ -121,7 +122,7 @@ function getMovieID (title){
             response.json().then(function (data) {
                 console.log("API call was a success!");
                 console.log(data.results[0].id);
-                movieID=data.results[0].id;
+                let movieID=data.results[0].id;
                 Trailers(movieID);                
               });
             }      
@@ -139,63 +140,79 @@ function Trailers (movieID) {
     fetch(trailerURL)
     .then(function(response){
             if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                // Pull they video key from the API Trailer Array
-                 let videoKey = data.results[0].key;
-                //  console.log(videoKey);
-                let trailerMovieName =data.results[0].name;
-                console.log(trailerMovieName);
-                //  Create the Youtube Link with the key of the video
-                let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-                console.log(YoutubeLink);
+                response.json()
+				.then(function (data) {
+                	console.log(data);	
+					createTrailerElement(data);
+				});
+			} else {
+				console.log("error");	
+			}  
+		}); 	
+};	   
 
-                // Find organized list element
-                let trailerListEl = document.querySelector("#trailer-list");
-            
-                // Creates trailer Link list Element
-                let li1 = document.createElement("li");
-                // li1 = document.setAttribute("id", "list-item")
+// Function to create an element under Video Trailers if the trailers API call was successful
+function createTrailerElement (data) {
+	// Pull they video key from the API Trailer Array
+	// let videoKey = data.results[0].key;	
 
-                // // Add text to link
-                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+	
+	console.log(data);
+	if (data.results.length === 0) {
+		console.log(data.results)
 
-                // Append list items to ordered trailerListEl
-                trailerListEl.appendChild(li1);
-                
-                // Update Trailer element in HTML to have the new Youtube Link
-                // trailerSourceEl.setAttribute('src', YoutubeLink);
-                // trailerSourceEl.textContent = YoutubeLink;
-                // trailerContainerEl.textContent = YoutubeLink;
-            });   
+		// Creates paragraph element
+		let noVideosFound = document.createElement("p");
 
-            } else {
-                // linkTrailerEl.css("display", "none");
-                console.log('getVideos API call not working');
-            }
-    })
-}    
+		// Add text to paragraph element
+		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
-	// Hide the quiz questions when results are displayed
-	function hideQuiz() {
-		quizContainerEl.css("display", "none");
-		resultsContainerEl.css("display", "block");
-		resultsTitleEl.css("display", "block");
-		trailerContainerEl.css("display","block");
-
+		// Append paragraph element to trailerListEl
+		trailerEl.appendChild(noVideosFound);
 	}
 
-	function addRecommendedTitle (){
-		// Create an h3 to replace the title at top of movie results
-		let recommendedMoviesTitleEl = document.createElement("h3");
-		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
-		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+	else {
+		// Pull they video key from the API Trailer Array
+		let videoKey = data.results[0].key;	
+
+		let trailerMovieName =data.results[0].name;
+		console.log(trailerMovieName);
+		//  Create the Youtube Link with the key of the video
+		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+		console.log(YoutubeLink);
+
+		// Find organized list element
+		let trailerListEl = document.querySelector("#trailer-list");
+
+		// Creates trailer Link list Element
+		let li1 = document.createElement("li");
+		// li1 = document.setAttribute("id", "list-item")
+
+		// // Add text to link
+		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+
 		// Append list items to ordered trailerListEl
-
-		 recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
-
+		trailerListEl.appendChild(li1);
 	}
-});
+};	
+
+// Hide the quiz questions when results are displayed
+function hideQuiz() {
+	quizContainerEl.css("display", "none");
+	resultsContainerEl.css("display", "block");
+	resultsTitleEl.css("display", "block");
+	trailerContainerEl.css("display","block");
+};
+
+function addRecommendedTitle (){
+	// Create an h3 to replace the title at top of movie results
+	let recommendedMoviesTitleEl = document.createElement("h3");
+	recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
+	recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+	// Append list items to ordered trailerListEl
+	recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
+};
+
 
 // SM - Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
