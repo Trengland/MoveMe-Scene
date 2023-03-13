@@ -153,10 +153,6 @@ function Trailers (movieID) {
 
 // Function to create an element under Video Trailers if the trailers API call was successful
 function createTrailerElement (data) {
-	// Pull they video key from the API Trailer Array
-	// let videoKey = data.results[0].key;	
-
-	
 	console.log(data);
 	if (data.results.length === 0) {
 		console.log(data.results)
