@@ -52,11 +52,12 @@ body {
 }
 
 .text {
-    position: absolute;
+    position: relative;
     top: 125%;
     left: 50%;
     transform: translate(-50%, -50%);
     display: flex;
+
 }
 
 .wrapper {
@@ -98,10 +99,10 @@ body {
 
 
 #homepage {
-    display: flex;
+    /* display: flex; 
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 #marqueecontainer {
@@ -184,4 +185,25 @@ body {
     width: 75px;
     border: none;
     background-color: none;
+}
+
+/* Mobile Styling */
+@media screen and (min-width: 320px) and (max-width: 480px) { 
+    #homepage {
+        display: inline-block;
+    
+       
+
+    }
+
+    .is-size-1 {
+        font-size: ;
+    }
+
+    .text{
+        transform: value;
+        font-size: .5vw;
+
+
+    }
 }
