@@ -139,75 +139,70 @@ function Trailers (movieID) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log(data);
-                // Pull they video key from the API Trailer Array
-                 let videoKey = data.results[0].key;
-					if (videoKey = "undefined") {
-						// Creates paragraph element
-						let noVideosFound = document.createElement("p");
+                // // Pull they video key from the API Trailer Array
+                //  let videoKey = data.results[0].key;
+				 console.log("testtttt")
+					
+				 	// function createTrailerElement () {
+						if (data.results =[]) {
+							// Creates paragraph element
+							let noVideosFound = document.createElement("p");
 
-						// Add text to paragraph element
-						noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
+							// Add text to paragraph element
+							noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
 		
-						// Append paragraph element to trailerListEl
-						trailerEl.appendChild(noVideosFound);
-					}
-                //  console.log(videoKey);
-                let trailerMovieName =data.results[0].name;
-                console.log(trailerMovieName);
-                //  Create the Youtube Link with the key of the video
-                let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-                console.log(YoutubeLink);
+							// Append paragraph element to trailerListEl
+							trailerEl.appendChild(noVideosFound);
+						}
 
-                // Find organized list element
-                let trailerListEl = document.querySelector("#trailer-list");
+						else {
+							// Pull they video key from the API Trailer Array
+							let videoKey = data.results[0].key;	
+
+							let trailerMovieName =data.results[0].name;
+							console.log(trailerMovieName);
+							//  Create the Youtube Link with the key of the video
+							let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+							console.log(YoutubeLink);
+
+							// Find organized list element
+							let trailerListEl = document.querySelector("#trailer-list");
+					
+							// Creates trailer Link list Element
+							let li1 = document.createElement("li");
+							// li1 = document.setAttribute("id", "list-item")
+
+							// // Add text to link
+							li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+
+							// Append list items to ordered trailerListEl
+							trailerListEl.appendChild(li1);
+						}
+
+				 	// }	
             
-                // Creates trailer Link list Element
-                let li1 = document.createElement("li");
-                // li1 = document.setAttribute("id", "list-item")
+            	})	
+    		}
+	}) 
+};	   
 
-                // // Add text to link
-                li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+// Hide the quiz questions when results are displayed
+function hideQuiz() {
+	quizContainerEl.css("display", "none");
+	resultsContainerEl.css("display", "block");
+	resultsTitleEl.css("display", "block");
+	trailerContainerEl.css("display","block");
+};
 
-                // Append list items to ordered trailerListEl
-                trailerListEl.appendChild(li1);
-                
-            
-            });   
+function addRecommendedTitle (){
+	// Create an h3 to replace the title at top of movie results
+	let recommendedMoviesTitleEl = document.createElement("h3");
+	recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
+	recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+	// Append list items to ordered trailerListEl
+	recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
+};
 
-            } else {
-				// // Creates paragraph element
-                // let noVideosFound = document.createElement("p");
-
-				// // Add text to paragraph element
-				// noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
-
-				// // Append paragraph element to trailerListEl
-				// trailerEl.appendChild(noVideosFound);
-
-            
-            }
-    })
-}    
-
-	// Hide the quiz questions when results are displayed
-	function hideQuiz() {
-		quizContainerEl.css("display", "none");
-		resultsContainerEl.css("display", "block");
-		resultsTitleEl.css("display", "block");
-		trailerContainerEl.css("display","block");
-	}
-
-	function addRecommendedTitle (){
-		// Create an h3 to replace the title at top of movie results
-		let recommendedMoviesTitleEl = document.createElement("h3");
-		recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
-		recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
-		// Append list items to ordered trailerListEl
-
-		 recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
-
-	}
-});
 
 // SM - Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
