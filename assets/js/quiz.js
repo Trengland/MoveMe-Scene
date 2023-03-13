@@ -101,7 +101,9 @@ $(function () {
 
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
 			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
-			$("#results").append("<div class='pad-8'>" + overview + "</div><hr class='hr'>");
+			$("#results").append("<div class='pad-8'>" + overview + "</div>");
+			// SM - Thumbs up and down buttons
+			$("#results").append("<div class='pad-8 is-centered buttons'><button class='button thumbs-up-btn'><span class='icon'><i class='fa-solid fa-thumbs-up'></i></span></button><button class='button thumbs-down-btn'><span class='icon'><i class='fa-solid fa-thumbs-down'></i></span></button></div><hr class='hr'>");
 			console.log("title" + title);
 			getMovieID (title);
 		}
