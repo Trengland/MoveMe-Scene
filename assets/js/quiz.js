@@ -141,6 +141,16 @@ function Trailers (movieID) {
                     console.log(data);
                 // Pull they video key from the API Trailer Array
                  let videoKey = data.results[0].key;
+					if (videoKey = "undefined") {
+						// Creates paragraph element
+						let noVideosFound = document.createElement("p");
+
+						// Add text to paragraph element
+						noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
+		
+						// Append paragraph element to trailerListEl
+						trailerEl.appendChild(noVideosFound);
+					}
                 //  console.log(videoKey);
                 let trailerMovieName =data.results[0].name;
                 console.log(trailerMovieName);
@@ -161,15 +171,20 @@ function Trailers (movieID) {
                 // Append list items to ordered trailerListEl
                 trailerListEl.appendChild(li1);
                 
-                // Update Trailer element in HTML to have the new Youtube Link
-                // trailerSourceEl.setAttribute('src', YoutubeLink);
-                // trailerSourceEl.textContent = YoutubeLink;
-                // trailerContainerEl.textContent = YoutubeLink;
+            
             });   
 
             } else {
-                // linkTrailerEl.css("display", "none");
-                console.log('getVideos API call not working');
+				// // Creates paragraph element
+                // let noVideosFound = document.createElement("p");
+
+				// // Add text to paragraph element
+				// noVideosFound.textContent= 'Unfortunately, there are no videos trailers for these movies.'
+
+				// // Append paragraph element to trailerListEl
+				// trailerEl.appendChild(noVideosFound);
+
+            
             }
     })
 }    
@@ -180,7 +195,6 @@ function Trailers (movieID) {
 		resultsContainerEl.css("display", "block");
 		resultsTitleEl.css("display", "block");
 		trailerContainerEl.css("display","block");
-
 	}
 
 	function addRecommendedTitle (){
