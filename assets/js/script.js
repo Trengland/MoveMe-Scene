@@ -65,4 +65,10 @@ $("#submit-button").click(function() {
 let email = document.querySelector(".email-input");
 localStorage.setItem("userEmail", email.value);
 console.log(localStorage);
+$("#sign-up-modal").removeClass("is-active");
 });
+
+$(".close").click(function() {
+    $("#sign-up-modal").removeClass("is-active");
+    });
+
