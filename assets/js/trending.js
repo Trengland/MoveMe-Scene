@@ -42,14 +42,27 @@ $(document).ready(function() {
         $(".navbar-menu").toggleClass("is-active");
     });
   });
-  
-  // SM - Check for click events on signup button, pop up modal
-  $("#signupbutton").click(function() {
-  // Toggle is-active class on login modal
-  $("#sign-up-modal").addClass("is-active");
-  console.log("test");
-  });
-  
-  $(".modal-background").click(function() {
-  $("#sign-up-modal").removeClass("is-active");
-  });
+
+// SM - Check for click events on signup button, pop up modal
+$("#signupbutton").click(function() {
+// Toggle is-active class on login modal
+$("#sign-up-modal").addClass("is-active");
+console.log("test");
+});
+
+$(".modal-background").click(function() {
+$("#sign-up-modal").removeClass("is-active");
+});
+
+// Click event on modal x
+$("#close-modal-btn").click(function() {
+$("#sign-up-modal").removeClass("is-active");
+});
+
+// SM - Local Storage of Emails
+$("#submit-button").click(function() {
+let email = document.querySelector(".email-input");
+localStorage.setItem("userEmail", email.value);
+console.log(localStorage);
+$("#sign-up-modal").removeClass("is-active");
+});

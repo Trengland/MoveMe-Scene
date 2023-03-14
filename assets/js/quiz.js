@@ -222,7 +222,15 @@ $("#signupbutton").click(function() {
 	$("#close-modal-btn").click(function() {
 	$("#sign-up-modal").removeClass("is-active");
 	});
-
+	
+	// SM - Local Storage of Emails
+	$("#submit-button").click(function() {
+	let email = document.querySelector(".email-input");
+	localStorage.setItem("userEmail", email.value);
+	console.log(localStorage);
+	$("#sign-up-modal").removeClass("is-active");
+	});
+	
 // Function to create an element under Video Trailers if the trailers API call was successful
  // function createTrailerElement (data) { 
 // 	console.log(data);
