@@ -2,6 +2,7 @@
 // Starter Variables
 let recommendedMovie = "";
 let movieID = "";
+let parseData ;
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
@@ -21,12 +22,26 @@ let trailerContainerEl= $('#link-to-trailer');
 let resultsContainerEl = $("#results");
 let resultsTitleEl = $("#recommended-title");
 
+let resultsHeader = document.querySelector('#results-header')
+
 
 quizContainerEl.css("display", "block");
 resultsContainerEl.css("display", "none");
 resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
 
+let history = JSON.parse(localStorage.getItem("movieChoices"))
+console.log(history)
+
+if (history === null) {
+    resultsHeader.append('')
+} 
+
+for (let i = 0; i < history.length; i++) {
+    let item = document.createElement("p")
+    item.textContent = history[i].init +`: `+ history[i].certString +` `+ history[i].runTimeLTE +` `+ history[i].releaseDateStart +` - `+ history[i].releaseDateEnd +`)`
+    resultsHeader.append(item)
+};
 
 
 $(function () {
@@ -89,6 +104,7 @@ $(function () {
 	});
 
 	function displayResults(results) {
+        console.log("Showing the following results")
 		console.log(results);
 		$("#results").empty();
 		// console.log("Called Display Results")
@@ -219,3 +235,85 @@ $(document).ready(function() {
   $(".modal-background").click(function() {
   $("#sign-up-modal").removeClass("is-active");
   });
+
+function saveToStorage(e){
+    e.preventDefault()
+    console.log("saving")
+    var releaseDateStart = $("#release-start").val();
+	var releaseDateEnd = $("#release-end").val();
+	var runtimeLTE = $("#runtime").val();
+    let initials = document.querySelector("#initials").value
+    var genreIds = "";
+		$("input[name='genres']:checked").each(function () {
+            console.log($(this))
+			genreIds += document.querySelectorAll("#genres").checked
+            console.log(genreIds)
+
+            //parseData = JSON.stringify(genreIds)
+		});
+
+		var certString = "";
+		$("input[name='certifications']:checked").each(function () {
+
+			certString += $(this).val();
+		});
+    
+        console.log(releaseDateStart)
+        console.log(releaseDateEnd)
+        console.log(runtimeLTE)
+        console.log(parseData);
+        console.log(certString);
+
+        let searches = JSON.parse(localStorage.getItem("movieChoices")) || [];
+
+        const movieChoices = {
+            init:initials, 
+            releaseDateStart:releaseDateStart, 
+            releaseDateEnd:releaseDateEnd, 
+            runTimeLTE:runtimeLTE, 
+            genreIds:genreIds, 
+            certString:certString 
+
+        } 
+        searches.push(movieChoices)
+        localStorage.setItem("movieChoices", JSON.stringify(searches))
+    }
+document.getElementById("submitResults").addEventListener("click", saveToStorage)
+console.log(parseData);
+
+
+// if (response.videos.results.length != 0) {
+//     var youTubeKey = response.videos.results[0].key;
+//     $("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
+// } else {
+//     $("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
+// }
+// $("#saveResults").show();
+// $("#saveResults").click(function () {
+//     var existingResults = JSON.parse(localStorage.getItem("PastResults") || '[]');
+//         existingResults.push(response);
+//         localStorage.setItem("PastResults", JSON.stringify(existingResults));
+
+// });
+//   var resultsInputName = document.getElementById('initials')
+
+// 	const title = JSON.parse(localStorage.getItem("title")) || [];
+// 	localStorage.setItem("Results", JSON.stringify ([]));
+// 	console.log(JSON.parse (localStorage.getItem("title"))); 
+
+// 	searchBtn.addEventListener("click", function poster() {
+
+// 		results.results[i].title = e => {
+// 		console.log("clicked the save button!")
+// 		e.preventDefault();
+// 	}
+
+// 	const userResults = {
+// 		results: title,
+// 	}
+
+
+// 	})
+
+
+// 	});
