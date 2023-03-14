@@ -37,8 +37,8 @@ body {
     align-items: center;
     color: white;
     background: url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1") no-repeat;
-    background: linear-gradient(rgba(58, 58, 58, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(rgba(58, 58, 58, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(rgba(54, 56, 173, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1");  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(rgba(54, 56, 173, 0.8), rgba(75, 125, 231, 0.8)), url("https://images.pexels.com/photos/265685/pexels-photo-265685.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background-size: cover;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -82,13 +82,45 @@ body {
 }
 
 
-
 .content h1 {
     color: white;
     font-weight: bold;
     line-height: 1.125;
     text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
 }
+
+#toptrendingmovies {
+color: white;
+font-weight: bold;
+line-height: 1.125;
+text-shadow: 3px 3px 2px white, 5px 5px 3px #4369e4;
+text-transform: uppercase;
+background-image: linear-gradient(
+    -125deg,
+    #132668 20%,
+    #205586 40%,
+    #261a94 50%,
+   	#082c91 40%,
+	#2e73db 20%
+  );
+background-size: auto auto;
+background-clip: border-box;
+background-size: 200% auto;
+color: #fff;
+background-clip: text;
+text-emphasis-color: transparent;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: textclip 3s linear infinite;
+display: inline-block;
+}
+
+@keyframes textclip {
+	to {
+	  background-position: 200% center;
+	}
+  }
+
 
 .content h2, .content h3, .content h4, .content h5, .content h6 {
     color: white;
@@ -99,10 +131,10 @@ body {
 
 
 #homepage {
-    /* display: flex; 
+    display: flex; 
     flex-direction: column;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 }
 
 #marqueecontainer {
@@ -131,6 +163,15 @@ body {
     color: #1569C7;
 }
 
+#backtotop {
+    font-size: 48px;
+    color: white;
+}
+
+#backtotop:hover {
+    color:rgb(8, 22, 97);
+}
+
 .cardimage {
     display: flex;
     flex-direction: column;
@@ -139,9 +180,9 @@ body {
 }
 
 .footer {
-    padding: 20px;
+    padding: 15px;
     background-color: lightgrey;
-    width: 100%;
+    width: 110%;
 }
 
 .quoteModal {
@@ -162,7 +203,7 @@ body {
     margin: 15% auto; 
     padding: 20px;
     border: 1px solid #888;
-    width: 80%; 
+    width: 60%;
 }
 
 /* The Close Button */
@@ -179,31 +220,69 @@ body {
     text-decoration: hand;
     cursor: pointer;
 }
+
+#quotecontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#movieQuote {
+    font-style: italic;
+    font-size: 24px;
+}
+
+#movie {
+    color:rgb(32, 88, 207);
+}
+
 /* the tape */
 .tape {
     height: 40px;
     width: 75px;
     border: none;
-    background-color: none;
 }
+
+.tape:hover {
+    animation: shake 0.8s;
+    animation-iteration-count: infinite;
+    cursor: pointer;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }
+
 
 /* Mobile Styling */
 @media screen and (min-width: 320px) and (max-width: 480px) { 
-    #homepage {
-        display: inline-block;
-    
-       
+   #welcome{
+    font-size: 34px !important;
+    }
+   
+    .letter {
+    font-size: 39px !important;
 
     }
 
-    .is-size-1 {
-        font-size: ;
+    .shadow {
+    font-size: 20px !important;
     }
 
-    .text{
-        transform: value;
-        font-size: .5vw;
-
-
+    .wrapper{
+    padding: 0%;
+    margin: 5px;
     }
 }
