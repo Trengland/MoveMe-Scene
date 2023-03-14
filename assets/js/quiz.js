@@ -327,7 +327,7 @@ $("#thumbsUpBtn").click(function () {
         } 
         searches.push(movieChoices)
         localStorage.setItem("movieChoices", JSON.stringify(searches))
-    }
+    // }
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
