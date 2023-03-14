@@ -25,7 +25,7 @@ function displayTrendingMovies(data) {
         let trendingOverview = data.results[i].overview;
 
         let trendingCardEl = document.createElement('div');
-        trendingCardEl.setAttribute('class', 'column is-half p-5');
+        trendingCardEl.setAttribute('class', 'column is-one-third p-5');
         trendingCardEl.innerHTML = "<div class='card is-fullheight p-4'><div class='card-image'><img src=" + trendingImageUrl + trendingPoster + "></div><div class='card-content'><p class='title'>" + trendingTitle + "</p></div><div><p class='subtitle has-text-left'>" + trendingOverview + "</p></div></div>"
         trendingListEl.append(trendingCardEl);
     } 
