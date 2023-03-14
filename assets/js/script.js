@@ -66,3 +66,20 @@ let email = document.querySelector(".email-input");
 localStorage.setItem("userEmail", email.value);
 console.log(localStorage);
 });
+
+// // Get the x element that closes the modal
+let closeEmailModal = $(".close")[0];
+
+// When the user clicks on (x), close the modal
+closeEmailModal.onclick = function () {
+let modalSignUp = $(".modal")    
+modalSignUp.css(display, "none");
+}
+
+// Close Modal 
+window.onclick = function (event) {
+    let modalSignUp = $(".modal")  
+if (event.target == modalSignUp) {
+   modalSignUp.css(display, "none");
+    }
+}
