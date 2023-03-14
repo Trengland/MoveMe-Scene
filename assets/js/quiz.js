@@ -1,7 +1,8 @@
 
 // Starter Variables
 let recommendedMovie = "";
-// let movieID = "";
+let movieID = "";
+let parseData ;
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
@@ -12,6 +13,10 @@ let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
 let recommendedTitleEl = document.getElementById("recommended-title");
+let resultsSectionEl = document.getElementById("results");
+let frameContainer = document.querySelector(".frame-container");
+
+
 
 
 // Variables defined to show & hide HTML elements on page
@@ -21,6 +26,8 @@ let resultsContainerEl = $("#results");
 let resultsTitleEl = $("#recommended-title");
 let takeQuizEl = $("#take-quiz-again");
 
+let resultsHeader = document.querySelector('#results-header')
+
 
 quizContainerEl.css("display", "block");
 resultsContainerEl.css("display", "none");
@@ -28,7 +35,23 @@ resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
 takeQuizEl.css("display","none");
 
+let history = JSON.parse(localStorage.getItem("movieChoices"))
+console.log(history)
 
+if (history === null) {
+    resultsHeader.append('')
+
+} else {
+
+
+
+for (let i = 0; i < history.length; i++) {
+    let item = document.createElement("p")
+    item.textContent = history[i].init +`: `+ history[i].certString +` `+ history[i].runTimeLTE +`(`+ history[i].releaseDateStart +` - `+ history[i].releaseDateEnd +`)`
+    resultsHeader.append(item)
+};
+
+}
 
 $(function () {
 	const apiKey = "bb20124838543378f16ab68d72df5e76";
@@ -90,6 +113,7 @@ $(function () {
 	});
 
 	function displayResults(results) {
+        console.log("Showing the following results")
 		console.log(results);
 		$("#results").empty();
 		// console.log("Called Display Results")
@@ -103,6 +127,7 @@ $(function () {
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
 			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
 			$("#results").append("<div class='pad-8'>" + overview + "</div>");
+
 			// SM - Thumbs up and down buttons
 			$("#results").append("<div class='pad-8 is-centered buttons'><button class='button thumbs-up-btn' id='thumbsUpBtn'><span class='icon'><i class='fa-solid fa-thumbs-up'></i></span></button><button class='button thumbs-down-btn' id='thumbsDownBtn'><span class='icon'><i class='fa-solid fa-thumbs-down'></i></span></button></div><hr class='hr'>");
 			console.log("title" + title);
@@ -134,64 +159,93 @@ function getMovieID (title){
 
 // Function to populate Trailer with movie ID
 function Trailers (movieID) {
-    let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
-    // Chelsea's back up plan if trailerURL doesn't work
-    // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
+    let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
-    fetch(trailerURL)
+    fetch(videoURL)
     .then(function(response){
             if (response.ok) {
                 response.json()
 				.then(function (data) {
                 	console.log(data);	
-					createTrailerElement(data);
+					if (data.videos.results.length != 0) {
+						let youTubeKey = data.videos.results[0].key;
+						let trailerListEl = document.querySelector("#trailer-list");
+						let frame =  document.createElement("iframe");
+						frame.setAttribute ("src","https://www.youtube.com/embed/" + youTubeKey );
+						frame.setAttribute("name", "Trailer Video");
+						frame.setAttribute("id", "frame");
+						frame.frameborder = 0;
+						frame.width = 560;
+						frame.height = 315;
+						frame.position = 'absolute';
+						frame.allowFullscreen = true;
+						frameContainer.append(frame);
+					}	 else {	
+						// Creates paragraph element
+						let noVideosFound = document.createElement("p");
+
+						// Add text to paragraph element
+						noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
+
+						// Append paragraph element to trailerListEl
+						frameContainer.append(noVideosFound);	
+						}
 				});
 			} else {
-				console.log("error");	
+				console.log("error");
+				
 			}  
 		}); 	
 };	   
 
 // Function to create an element under Video Trailers if the trailers API call was successful
-function createTrailerElement (data) {
-	console.log(data);
-	if (data.results.length === 0) {
-		console.log(data.results)
+ // function createTrailerElement (data) { 
+// 	console.log(data);
+// 	if (data.results.length === 0) {
+// 		console.log(data.results)
 
-		// Creates paragraph element
-		let noVideosFound = document.createElement("p");
+// 		// Creates paragraph element
+// 		let noVideosFound = document.createElement("p");
 
-		// Add text to paragraph element
-		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
+// 		// Add text to paragraph element
+// 		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
-		// Append paragraph element to trailerListEl
-		trailerEl.appendChild(noVideosFound);
-	}
+// 		// Append paragraph element to trailerListEl
+// 		trailerEl.append(noVideosFound);
+// 	}
 
-	else {
-		// Pull they video key from the API Trailer Array
-		let videoKey = data.results[0].key;	
+// 	else {
+// 		// Pull they video key from the API Trailer Array
+// 		let videoKey = data.results[0].key;	
 
-		let trailerMovieName =data.results[0].name;
-		console.log(trailerMovieName);
-		//  Create the Youtube Link with the key of the video
-		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-		console.log(YoutubeLink);
+// 		let trailerMovieName =data.results[0].name;
+// 		console.log(trailerMovieName);
+// 		//  Create the Youtube Link with the key of the video
+// 		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+// 		console.log(YoutubeLink);
 
-		// Find organized list element
-		let trailerListEl = document.querySelector("#trailer-list");
+// 		// Find organized list element
+// 		let trailerListEl = document.querySelector("#trailer-list");
 
-		// Creates trailer Link list Element
-		let li1 = document.createElement("li");
-		// li1 = document.setAttribute("id", "list-item")
+// 		// Creates trailer Link list Element
+// 		let li1 = document.createElement("li");
 
-		// // Add text to link
-		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+// 		// // Add text to link
+// 		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
 
-		// Append list items to ordered trailerListEl
-		trailerListEl.appendChild(li1);
-	}
-};	
+// 		// Append list items to ordered trailerListEl
+// 		trailerListEl.appendChild(li1);
+// 	}
+// };	
+
+// function playVideo(){
+// if (response.videos.results.length != 0) {
+// 	let youTubeKey = response.videos.results[0].key;
+// 	$("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
+// }	 else {	
+// 	$("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
+// 	}
+// }
 
 // Hide the quiz questions when results are displayed
 function hideQuiz() {
@@ -231,6 +285,7 @@ $(document).ready(function() {
   console.log("test");
   });
   
+  
   $(".modal-background").click(function () {
   $("#sign-up-modal").removeClass("is-active");
   });
@@ -242,8 +297,68 @@ $("#thumbsUpBtn").click(function () {
 	console.log(localStorage);
 });
 
-$("#thumbsDownBtn").click(function () {
-	
-	localStorage.setItem("Nay", title.value);
-	console.log(localStorage);
-});
+		var certString = "";
+		$("input[name='certifications']:checked").each(function () {
+
+			certString += $(this).val();
+		});
+    
+        console.log(releaseDateStart)
+        console.log(releaseDateEnd)
+        console.log(runtimeLTE)
+        console.log(parseData);
+        console.log(certString);
+
+        let searches = JSON.parse(localStorage.getItem("movieChoices")) || [];
+
+        const movieChoices = {
+            init:initials, 
+            releaseDateStart:releaseDateStart, 
+            releaseDateEnd:releaseDateEnd, 
+            runTimeLTE:runtimeLTE, 
+            genreIds:genreIds, 
+            certString:certString 
+
+        } 
+        searches.push(movieChoices)
+        localStorage.setItem("movieChoices", JSON.stringify(searches))
+    // }
+document.getElementById("submitResults").addEventListener("click", saveToStorage)
+console.log(parseData);
+
+
+// if (response.videos.results.length != 0) {
+//     var youTubeKey = response.videos.results[0].key;
+//     $("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
+// } else {
+//     $("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
+// }
+// $("#saveResults").show();
+// $("#saveResults").click(function () {
+//     var existingResults = JSON.parse(localStorage.getItem("PastResults") || '[]');
+//         existingResults.push(response);
+//         localStorage.setItem("PastResults", JSON.stringify(existingResults));
+
+// });
+//   var resultsInputName = document.getElementById('initials')
+
+// 	const title = JSON.parse(localStorage.getItem("title")) || [];
+// 	localStorage.setItem("Results", JSON.stringify ([]));
+// 	console.log(JSON.parse (localStorage.getItem("title"))); 
+
+// 	searchBtn.addEventListener("click", function poster() {
+
+// 		results.results[i].title = e => {
+// 		console.log("clicked the save button!")
+// 		e.preventDefault();
+// 	}
+
+// 	const userResults = {
+// 		results: title,
+// 	}
+
+
+// 	})
+
+
+// 	});
