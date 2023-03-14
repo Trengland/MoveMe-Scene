@@ -56,10 +56,6 @@
             <a id="signupbutton" class="button is-dark">
               <strong>Sign up for our Weekly Newsletter!</strong>
             </a>
-            <!-- Log in Button -->
-            <!-- <a class="button is-light">
-                Log in
-                </a> -->
           </div>
         </div>
       </div>
@@ -684,9 +680,10 @@
           <br>
         </div>
       </div>
-
+    <div class="has-text-centered">
       <input type="text" size="40" placeholder="Enter your initials to log your results!" name="initials" id="initials">
       <button id="submitResults">Submit Results</button>
+    </div>
       
       <!-- Trailer List Container -->
 <div id="link-to-trailer">
@@ -712,17 +709,18 @@
       <div class="modal" id="sign-up-modal">
         <div class="modal-background"></div>
         <div class="modal-content has-background-white py-5 px-5">
+          <span class="close" id="close-modal-btn">&times;</span>
           <!-- Email Form -->
           <form>
             <div class="field">
               <label class="label">Email:</label>
               <div class="control">
-                <input class="input" type="text" placeholder="Email">
+                <input class="input email-input" type="text" placeholder="Email">
               </div>
             </div>
           </form>
           <div class="has-text-centered">
-            <button class="button is-light mt-4">Sign Up</button>
+            <button class="button is-light mt-4" id="submit-button">Sign Up</button>
           </div>
         </div>
       </div>
