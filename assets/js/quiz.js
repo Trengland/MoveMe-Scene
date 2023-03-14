@@ -1,12 +1,8 @@
 
 // Starter Variables
 let recommendedMovie = "";
-<<<<<<< HEAD
 let movieID = "";
 let parseData ;
-=======
-// let movieID = "";
->>>>>>> c60d11dec138938a094a433a10bd6e3d3535960c
 
 // API URL Variables
 let apiKeyTMBD = "87ceec9af92ce89acfb2e11778f0841f";
@@ -40,14 +36,18 @@ console.log(history)
 
 if (history === null) {
     resultsHeader.append('')
-} 
+
+} else {
+
+
 
 for (let i = 0; i < history.length; i++) {
     let item = document.createElement("p")
-    item.textContent = history[i].init +`: `+ history[i].certString +` `+ history[i].runTimeLTE +` `+ history[i].releaseDateStart +` - `+ history[i].releaseDateEnd +`)`
+    item.textContent = history[i].init +`: `+ history[i].certString +` `+ history[i].runTimeLTE +`(`+ history[i].releaseDateStart +` - `+ history[i].releaseDateEnd +`)`
     resultsHeader.append(item)
 };
 
+}
 
 $(function () {
 	const apiKey = "bb20124838543378f16ab68d72df5e76";

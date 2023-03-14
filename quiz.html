@@ -75,6 +75,16 @@
   <div class="filters" id="quiz-container">
     <h3 id="top" class="title is-size-3">Answer a Few Questions to see Your Top 5 Movie Recommendations!</h3>
     <div class="pad-8">
+
+      <legend>How will you be watching?</legend>
+      <input type="checkbox" value="Alone">Alone<br>
+      <input type="checkbox" value="Couple">Couple<br>
+      <input type="checkbox" value="Friends">Friends<br>
+      <input type="checkbox" value="Family">Family<br>
+
+    </div>
+    <br> <br>
+    <div class="pad-8">
       <fieldset id="fieldset1">
         <legend>Please Select Ratings You Prefer:</legend>
         <input type="checkbox" name="certifications" value="G">G<br>
@@ -307,22 +317,22 @@
       <br>
       <fieldset id="fieldset2">
         <legend>Please select Genres:</legend>
-        <input id="genre" type="checkbox" name="genres" data="Action" value="28">Action<br>
-        <input id="genre"type="checkbox" name="genres" value="12">Adventure<br>
-        <input id="genre"type="checkbox" name="genres" value="16">Animation<br>
-        <input id="genre"type="checkbox" name="genres" value="35">Comedy<br>
-        <input id="genre"type="checkbox" name="genres" value="80">Crime<br>
-        <input id="genre"type="checkbox" name="genres" value="99">Documentary<br>
-        <input id="genre"type="checkbox" name="genres" value="18">Drama<br>
-        <input id="genre"type="checkbox" name="genres" value="10751">Family<br>
-        <input id="genre"type="checkbox" name="genres" value="14">Fantasy<br>
-        <input id="genre"type="checkbox" name="genres" value="36">History<br>
-        <input id="genre"type="checkbox" name="genres" value="27">Horror<br>
-        <input id="genre"type="checkbox" name="genres" value="10402">Musical<br>
-        <input id="genre"type="checkbox" name="genres" value="9648">Mystery<br>
-        <input id="genre"type="checkbox" name="genres" value="878">Science Fiction<br>
-        <input id="genre"type="checkbox" name="genres" value="10770">TV Movie<br>
-        <input id="genre"type="checkbox" name="genres" value="53">Thriller<br>
+        <input type="checkbox" name="genres" value="28">Action<br>
+        <input type="checkbox" name="genres" value="12">Adventure<br>
+        <input type="checkbox" name="genres" value="16">Animation<br>
+        <input type="checkbox" name="genres" value="35">Comedy<br>
+        <input type="checkbox" name="genres" value="80">Crime<br>
+        <input type="checkbox" name="genres" value="99">Documentary<br>
+        <input type="checkbox" name="genres" value="18">Drama<br>
+        <input type="checkbox" name="genres" value="10751">Family<br>
+        <input type="checkbox" name="genres" value="14">Fantasy<br>
+        <input type="checkbox" name="genres" value="36">History<br>
+        <input type="checkbox" name="genres" value="27">Horror<br>
+        <input type="checkbox" name="genres" value="10402">Musical<br>
+        <input type="checkbox" name="genres" value="9648">Mystery<br>
+        <input type="checkbox" name="genres" value="878">Science Fiction<br>
+        <input type="checkbox" name="genres" value="10770">TV Movie<br>
+        <input type="checkbox" name="genres" value="53">Thriller<br>
         <input type="checkbox" name="genres" value="10752">War<br>
         <input type="checkbox" name="genres" value="37">Western
       </fieldset>
@@ -337,136 +347,98 @@
         <option value="5">Less Than 2</option>
       </select>
     </div>
+    <div class="pad-8"></div>
+    <br>
+    <br>
+    <input type="text" size="40" placeholder="Enter your initials to log your results!" name="initials" id="initials">
+    <button id="submitResults">Submit Results</button>
+    <br>
+    <br>
     <div class="pad-8">
       <br>
       <br>
-      <input type="text" size="40" placeholder="Enter you initials to save your results" name="intials" id="initials" />
-      <button id="submitResults">Submit Results</button>
       <br>
-      <br>
-      <div id=resultsContainer>
-        <div id="resultsPage">
-          <div id="results-header">
-
-          </div>
-          <div id="results-initials"></div>
-          <div id="results-score"></div>
-        </div>
-        <div id="endGameBtns">
-
-<!-- Trailer List Container -->
-
-<div id="link-to-trailer">
-  <h3 class ="title is-size-3">Videos Trailers</h3>
-  <!-- This is where the trailer video list will dynamically appear -->
-  <ol class="pad-8" id="trailer-list">
-  </ol>
-
-</div>
-
-<br><br>
-<button id="take-quiz-again" class="title is-size-4 button is-white" onclick ="window.location.href='quiz.html';" >Take the Quiz Again!</button>
-<!-- <a href="quiz.html" id="take-quiz-again" class="title is-size-2">Take the Quiz Again!</a> -->
-
-<br><br>
-
-<a href="#topofpage" id="backtotop">Back to Top</a>
-
-<!-- Sign Up Modal -->
-<div class="modal" id="sign-up-modal">
-  <div class="modal-background"></div>
-  <div class="modal-content has-background-white py-5 px-5">
-    <!-- Email Form -->
-    <form>
-      <div class="field">
-        <label class="label">Email:</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Email">
-        </div>
-      </div>
-
       <button id="searchBtn">Search For Movies</button>
     </div>
   </div>
+  <br>
+  <div id=resultsContainer>
+    <div id="resultsPage">
+      <div id="results-header">
+        <div id="results-initials"></div>
+        <div id="results-score"></div>
+      </div>
+      <div id="endGameBtns">
 
-  <div id="recommended-title">
-    <!-- Results Title Placeholder (needed because there is a function that clears out everything under results element below this) -->
-  </div>
-  <div id="results">
-    <br>
-    <br>
-  </div>
-  </div>
-
-
-  <!-- Trailer List Container -->
-
-  <div id="link-to-trailer">
-    <h3 class="title is-size-3">Videos Trailers</h3>
-    <!-- This is where the trailer video list will dynamically appear -->
-    <ol class="pad-8" id="trailer-list">
-
-    </ol>
-  </div>
-
-  <!--Trailer Video Container (currently not working) -->
-  <!-- <video class="container" id="trailer-container" width="100%">Container for Trailers -->
-  <!-- <source id="src"  src="https://www.youtube.com/watch?v=KQB_QvXMWXY" type="video"> -->
-  <!-- </video> -->
+        <div id="recommended-title">
+          <!-- Results Title Placeholder (needed because there is a function that clears out everything under results element below this) -->
+        </div>
+        <div id="results">
+          <br>
+          <br>
+        </div>
+      </div>
 
 
-  <br><br>
+      <!-- Trailer List Container -->
 
-  <a href="#topofpage" id="backtotop">Back to Top</a>
+      <div id="link-to-trailer">
+        <h3 class="title is-size-3">Videos Trailers</h3>
+        <!-- This is where the trailer video list will dynamically appear -->
+        <ol class="pad-8" id="trailer-list">
+        </ol>
 
-  <!-- Sign Up Modal -->
-  <div class="modal" id="sign-up-modal">
-    <div class="modal-background"></div>
-    <div class="modal-content has-background-white py-5 px-5">
-      <!-- Email Form -->
-      <form>
-        <div class="field">
-          <label class="label">Email:</label>
-          <div class="control">
-            <input class="input" type="text" placeholder="Email">
+      </div>
+
+      <br><br>
+      <button id="take-quiz-again" class="title is-size-4 button is-white"
+        onclick="window.location.href='quiz.html';">Take the Quiz Again!</button>
+      <!-- <a href="quiz.html" id="take-quiz-again" class="title is-size-2">Take the Quiz Again!</a> -->
+
+      <br><br>
+
+      <a href="#topofpage" id="backtotop">Back to Top</a>
+
+      <!-- Sign Up Modal -->
+      <div class="modal" id="sign-up-modal">
+        <div class="modal-background"></div>
+        <div class="modal-content has-background-white py-5 px-5">
+          <!-- Email Form -->
+          <form>
+            <div class="field">
+              <label class="label">Email:</label>
+              <div class="control">
+                <input class="input" type="text" placeholder="Email">
+              </div>
+            </div>
+          </form>
+          <div class="has-text-centered">
+            <button class="button is-light mt-4">Sign Up</button>
           </div>
         </div>
-      </form>
-      <div class="has-text-centered">
-        <button class="button is-light mt-4">Sign Up</button>
       </div>
-</div>
-    
-<footer class="footer">
-    <div class="content has-text-centered">
+
+      <footer class="footer">
+        <div class="content has-text-centered">
           <p>
-            <strong>MoveMe Scene</strong> by <a href="https://github.com/Trengland/MoveMe-Scene/graphs/contributors">Collaborator Team</a>. The source code is licensed
+            <strong>MoveMe Scene</strong> by <a
+              href="https://github.com/Trengland/MoveMe-Scene/graphs/contributors">Collaborator Team</a>. The source
+            code is licensed
             <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
             is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0,
-              and by <a href="https://www.themoviedb.org/documentation/api/terms-of-use"> <img src = "./assets/images/tmdblogo.jpg" alt="TMDB logo" 
-                width="38" height="42">. This product uses the TMDB API but is not endorsed or certified by TMDB.</a>
+              and by <a href="https://www.themoviedb.org/documentation/api/terms-of-use"> <img
+                  src="./assets/images/tmdblogo.jpg" alt="TMDB logo" width="38" height="42">. This product uses the TMDB
+                API but is not endorsed or certified by TMDB.</a>
           </p>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="content has-text-centered">
-      <p>
-        <strong>MoveMe Scene</strong> by <a
-          href="https://github.com/Trengland/MoveMe-Scene/graphs/contributors">Collaborator Team</a>. The source code is
-        licensed
-        <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
-        is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
-      </p>
-    </div>
-  </footer>
+        </div>
+      </footer>
 
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
-    integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
-  <script src="./assets/js/quiz.js"></script>
-  <!-- <script src="./assets/js/script.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
+      <script src="./assets/js/quiz.js"></script>
+      <script src="./assets/js/script.js"></script>
 </body>
 
 </html>
