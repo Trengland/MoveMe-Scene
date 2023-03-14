@@ -132,7 +132,7 @@ body {
 
 .small-text {
 	font-size:1em;
-	color: blue;
+	color: rgb(148, 148, 175);
 }
 
 
@@ -229,6 +229,9 @@ body {
 	color:white;
 }
 
+#take-quiz-again{
+  color:#1569C7;
+}
 
 #backtotop {
 	color: white;
