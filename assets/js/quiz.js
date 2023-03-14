@@ -298,11 +298,28 @@ function addRecommendedTitle (){
 	recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
 };
 
+function saveToStorage(e){
+    e.preventDefault()
+    console.log("saving")
+    var releaseDateStart = $("#release-start").val();
+	var releaseDateEnd = $("#release-end").val();
+	var runtimeLTE = $("#runtime").val();
+    let initials = document.querySelector("#initials").value
+    var genreIds = "";
+		$("input[name='genres']:checked").each(function () {
+            console.log($(this))
+			genreIds += document.querySelectorAll("#genres").checked
+            console.log(genreIds)
+
+            //parseData = JSON.stringify(genreIds)
+		});
+
 		var certString = "";
 		$("input[name='certifications']:checked").each(function () {
 
 			certString += $(this).val();
 		});
+
     
         console.log(releaseDateStart)
         console.log(releaseDateEnd)
@@ -323,7 +340,7 @@ function addRecommendedTitle (){
         } 
         searches.push(movieChoices)
         localStorage.setItem("movieChoices", JSON.stringify(searches))
-    // }
+    }
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
