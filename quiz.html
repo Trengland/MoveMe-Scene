@@ -72,11 +72,11 @@
   <h1 class="maintitle" id="topofpage">Movie Mood Quiz</h1>
   <br>
   <br>
-  <div class="filters" id="quiz-container">
+  <!-- <div class="filters" id="quiz-container">
     <h3 id="top" class="title is-size-3">Answer a Few Questions to see Your Top 5 Movie Recommendations!</h3>
-    <div class="pad-8">
+    <div class="pad-8"> -->
 
-      <legend>How will you be watching?</legend>
+      <!-- <legend>How will you be watching?</legend>
       <input type="checkbox" value="Alone">Alone<br>
       <input type="checkbox" value="Couple">Couple<br>
       <input type="checkbox" value="Friends">Friends<br>
@@ -335,9 +335,9 @@
         <input type="checkbox" name="genres" value="53">Thriller<br>
         <input type="checkbox" name="genres" value="10752">War<br>
         <input type="checkbox" name="genres" value="37">Western
-      </fieldset>
-    </div>
-    <div class="pad-8">
+      </fieldset> -->
+    <!-- </div> -->
+    <!-- <div class="pad-8">
       <br> <br>
       What Runtime Do You Prefer?:
       <select name="runtime" id="runtime">
@@ -346,12 +346,12 @@
         <option value="5">Less Than 3</option>
         <option value="5">Less Than 2</option>
       </select>
-    </div>
-    <div class="pad-8"></div>
+    </div> -->
+    <!-- <div class="pad-8"></div> -->
     <br>
     <br>
 
-    <input type="text" size="40" placeholder="Enter your initials to log your results!" name="initials" id="initials">
+    <!-- <input type="text" size="40" placeholder="Enter your initials to log your results!" name="initials" id="initials">
     <button id="submitResults">Submit Results</button>
     <br>
     <br>
@@ -359,7 +359,7 @@
       <br>
       <br>
       <br>
-      <button id="searchBtn">Search For Movies</button>
+      <button id="searchBtn">Search For Movies</button> -->
 
     <div class="filters" id="quiz-container">
       <h3 id="top" class ="title is-size-3">Answer a Few Questions to see Your Top 5 Movie Recommendations!</h3>
@@ -636,13 +636,20 @@
                 <option value="5">Less Than 2</option>
             </select>
         </div>
-        <div class="pad-8">
+        <!-- <div class="pad-8">
             <br>
             <br>
             <br>
             <button id="searchBtn">Search For Movies</button>
-        </div>
+        </div> -->
 
+    <br>
+    <br>
+    <div class="pad-8">
+      <br>
+      <br>
+      <br>
+      <button id="searchBtn">Search For Movies</button>
     </div>
   </div>
   <br>
@@ -652,6 +659,7 @@
         <div id="results-initials"></div>
         <div id="results-score"></div>
       </div>
+  
       <div id="endGameBtns">
 
         <div id="recommended-title">
@@ -663,14 +671,17 @@
         </div>
       </div>
 
-
+      <input type="text" size="40" placeholder="Enter your initials to log your results!" name="initials" id="initials">
+      <button id="submitResults">Submit Results</button>
+      
       <!-- Trailer List Container -->
-
-      <div id="link-to-trailer">
-        <h3 class="title is-size-3">Videos Trailers</h3>
-        <!-- This is where the trailer video list will dynamically appear -->
-        <ol class="pad-8" id="trailer-list">
-        </ol>
+<div id="link-to-trailer">
+  <h3 class ="title is-size-3" id="video-title">Videos Trailers</h3>
+  <div class="frame-container">
+  </div>
+  <!-- This is where the trailer video list will dynamically appear -->
+  <ol class="pad-8" id="trailer-list">
+  </ol>
 
       </div>
 
