@@ -91,6 +91,7 @@ body {
 /* Added a class to H3 elements in Quiz html so I could stytle them all the same */
 .is-size-3 {
 	font-size: large;
+  text-align:center;
 	color: white;
     line-height: 1.125;
     text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
@@ -224,12 +225,20 @@ body {
 	color:white;
 }
 
-
 #trailer-container{
 	color:white;
 }
 
+.frame-container {
+  margin-left: 10%;
+  margin-right:10%;
+  position:relative;
+  overflow:hidden;
+  width: 80%;
+}
+
 #take-quiz-again{
+ margin-left: 45%;
   color:#1569C7;
 }
 
@@ -238,7 +247,7 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: x-large;
 	font-style: bold;
-}
+  margin-left: 48%;
 
 
 #backtotop:hover {
