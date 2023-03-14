@@ -230,11 +230,11 @@ body {
 }
 
 .frame-container {
-  margin-left: 10%;
+  margin-left: 20%;
   margin-right:10%;
   position:relative;
   overflow:hidden;
-  width: 80%;
+  width: 70%;
 }
 
 #take-quiz-again{
@@ -248,7 +248,7 @@ body {
 	font-size: x-large;
 	font-style: bold;
   margin-left: 48%;
-
+}
 
 #backtotop:hover {
 	color:black;
