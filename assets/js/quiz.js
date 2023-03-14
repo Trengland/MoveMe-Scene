@@ -24,7 +24,7 @@ let resultsContainerEl = $("#results");
 let resultsTitleEl = $("#recommended-title");
 let takeQuizEl = $("#take-quiz-again");
 
-let resultsHeader = document.querySelector('#results-header')
+let resultsHeader = $("#textResults");
 
 
 quizContainerEl.css("display", "block");
@@ -32,6 +32,7 @@ resultsContainerEl.css("display", "none");
 resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
 takeQuizEl.css("display","none");
+resultsHeader.css("display", "none");
 
 let history = JSON.parse(localStorage.getItem("movieChoices"))
 console.log(history)
@@ -287,6 +288,7 @@ function hideQuiz() {
 	resultsTitleEl.css("display", "block");
 	trailerContainerEl.css("display","block");
 	takeQuizEl.css("display","block");
+	resultsHeader.css("display", "block");
 };
 
 function addRecommendedTitle (){
