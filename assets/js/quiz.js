@@ -13,6 +13,7 @@ let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
 let recommendedTitleEl = document.getElementById("recommended-title");
 let resultsSectionEl = document.getElementById("results");
+let frameContainer = document.querySelector(".frame-container");
 
 
 
@@ -160,7 +161,8 @@ function Trailers (movieID) {
 						frame.frameborder = 0;
 						frame.width = 100 + "%";
 						frame.height = 100 + "%";
-						trailerListEl.append(frame);
+						frame.position = 'absolute';
+						frameContainer.append(frame);
 					}	 else {	
 						// Creates paragraph element
 						let noVideosFound = document.createElement("p");
@@ -170,7 +172,7 @@ function Trailers (movieID) {
 						noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
 						// Append paragraph element to trailerListEl
-						trailerListEl.append(noVideosFound);	
+						frameContainer.append(noVideosFound);	
 						// trailerListEl.append("No Trailer");
 						}
 				});

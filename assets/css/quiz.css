@@ -229,6 +229,12 @@ body {
 	color:white;
 }
 
+.frame-container {
+  position:relative;
+  overflow:hidden;
+  width: 100%;
+}
+
 #take-quiz-again{
   color:#1569C7;
 }
