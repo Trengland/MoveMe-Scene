@@ -13,6 +13,10 @@ let trailerSourceEl = document.getElementById('src');
 let trailerVideoEl = document.getElementById('video');
 let trailerEl = document.getElementById('link-to-trailer');
 let recommendedTitleEl = document.getElementById("recommended-title");
+let resultsSectionEl = document.getElementById("results");
+let frameContainer = document.querySelector(".frame-container");
+
+
 
 
 // Variables defined to show & hide HTML elements on page
@@ -123,6 +127,7 @@ $(function () {
 			$("#results").append("<div class='pad-8'><img src='https://image.tmdb.org/t/p/original" + poster + "' class='poster'/></div>");
 			$("#results").append("<div class='pad-8'>#" + count + ": " + title + "<span class='margin-left-10 small-text'>Released: " + dayjs(releaseDate).format('MM/DD/YYYY') + "</span></div>");
 			$("#results").append("<div class='pad-8'>" + overview + "</div>");
+
 			// SM - Thumbs up and down buttons
 			$("#results").append("<div class='pad-8 is-centered buttons'><button class='button thumbs-up-btn' id='thumbsUpBtn'><span class='icon'><i class='fa-solid fa-thumbs-up'></i></span></button><button class='button thumbs-down-btn' id='thumbsDownBtn'><span class='icon'><i class='fa-solid fa-thumbs-down'></i></span></button></div><hr class='hr'>");
 			console.log("title" + title);
@@ -154,64 +159,98 @@ function getMovieID (title){
 
 // Function to populate Trailer with movie ID
 function Trailers (movieID) {
-    let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
+    // let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
     // Chelsea's back up plan if trailerURL doesn't work
-    // let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
+    let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
-    fetch(trailerURL)
+    fetch(videoURL)
     .then(function(response){
             if (response.ok) {
                 response.json()
 				.then(function (data) {
                 	console.log(data);	
-					createTrailerElement(data);
+					// createTrailerElement(data);
+					// playVideo(data);
+					if (data.videos.results.length != 0) {
+						let youTubeKey = data.videos.results[0].key;
+						let trailerListEl = document.querySelector("#trailer-list");
+						let frame =  document.createElement("iframe");
+						frame.setAttribute ("src","https://www.youtube.com/embed/" + youTubeKey );
+						frame.setAttribute("name", "Trailer Video");
+						frame.setAttribute("id", "frame");
+						frame.frameborder = 0;
+						frame.width = 100 + "%";
+						frame.height = 100 + "%";
+						frame.position = 'absolute';
+						frameContainer.append(frame);
+					}	 else {	
+						// Creates paragraph element
+						let noVideosFound = document.createElement("p");
+						let trailerListEl = document.querySelector("#trailer-list");
+
+						// Add text to paragraph element
+						noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
+
+						// Append paragraph element to trailerListEl
+						frameContainer.append(noVideosFound);	
+						// trailerListEl.append("No Trailer");
+						}
 				});
 			} else {
-				console.log("error");	
+				console.log("error");
+				
 			}  
 		}); 	
 };	   
 
 // Function to create an element under Video Trailers if the trailers API call was successful
-function createTrailerElement (data) {
-	console.log(data);
-	if (data.results.length === 0) {
-		console.log(data.results)
+ // function createTrailerElement (data) { 
+// 	console.log(data);
+// 	if (data.results.length === 0) {
+// 		console.log(data.results)
 
-		// Creates paragraph element
-		let noVideosFound = document.createElement("p");
+// 		// Creates paragraph element
+// 		let noVideosFound = document.createElement("p");
 
-		// Add text to paragraph element
-		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
+// 		// Add text to paragraph element
+// 		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
-		// Append paragraph element to trailerListEl
-		trailerEl.appendChild(noVideosFound);
-	}
+// 		// Append paragraph element to trailerListEl
+// 		trailerEl.append(noVideosFound);
+// 	}
 
-	else {
-		// Pull they video key from the API Trailer Array
-		let videoKey = data.results[0].key;	
+// 	else {
+// 		// Pull they video key from the API Trailer Array
+// 		let videoKey = data.results[0].key;	
 
-		let trailerMovieName =data.results[0].name;
-		console.log(trailerMovieName);
-		//  Create the Youtube Link with the key of the video
-		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-		console.log(YoutubeLink);
+// 		let trailerMovieName =data.results[0].name;
+// 		console.log(trailerMovieName);
+// 		//  Create the Youtube Link with the key of the video
+// 		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
+// 		console.log(YoutubeLink);
 
-		// Find organized list element
-		let trailerListEl = document.querySelector("#trailer-list");
+// 		// Find organized list element
+// 		let trailerListEl = document.querySelector("#trailer-list");
 
-		// Creates trailer Link list Element
-		let li1 = document.createElement("li");
-		// li1 = document.setAttribute("id", "list-item")
+// 		// Creates trailer Link list Element
+// 		let li1 = document.createElement("li");
 
-		// // Add text to link
-		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
+// 		// // Add text to link
+// 		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
 
-		// Append list items to ordered trailerListEl
-		trailerListEl.appendChild(li1);
-	}
-};	
+// 		// Append list items to ordered trailerListEl
+// 		trailerListEl.appendChild(li1);
+// 	}
+// };	
+
+// function playVideo(){
+// if (response.videos.results.length != 0) {
+// 	let youTubeKey = response.videos.results[0].key;
+// 	$("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
+// }	 else {	
+// 	$("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
+// 	}
+// }
 
 // Hide the quiz questions when results are displayed
 function hideQuiz() {
@@ -251,25 +290,17 @@ $(document).ready(function() {
   console.log("test");
   });
   
+  
   $(".modal-background").click(function () {
   $("#sign-up-modal").removeClass("is-active");
   });
 
-function saveToStorage(e){
-    e.preventDefault()
-    console.log("saving")
-    var releaseDateStart = $("#release-start").val();
-	var releaseDateEnd = $("#release-end").val();
-	var runtimeLTE = $("#runtime").val();
-    let initials = document.querySelector("#initials").value
-    var genreIds = "";
-		$("input[name='genres']:checked").each(function () {
-            console.log($(this))
-			genreIds += document.querySelectorAll("#genres").checked
-            console.log(genreIds)
-
-            //parseData = JSON.stringify(genreIds)
-		});
+  // SM - Button Click Events for Thumbs Up and Down
+$("#thumbsUpBtn").click(function () {
+	
+	localStorage.setItem("YAY!", title.value);
+	console.log(localStorage);
+});
 
 		var certString = "";
 		$("input[name='certifications']:checked").each(function () {
@@ -296,7 +327,7 @@ function saveToStorage(e){
         } 
         searches.push(movieChoices)
         localStorage.setItem("movieChoices", JSON.stringify(searches))
-    }
+    // }
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
