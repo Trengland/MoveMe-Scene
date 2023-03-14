@@ -29,12 +29,12 @@ When the user navigates to the Trending Movies Page, they are presented with car
 -Bulma
 
 ## Contributors 
-Chelsea Luevano GitHub: ChelseaLuevano\
-Chris Gould GitHub: cleegould\
-Sofie Milillo GitHub: smilillo\
-Stephanie Simmons GitHub: ssimmons122\
-Tiffany Englad GitHub: Trengland\
-John Killeen GitHub: killeen31
+Chelsea Luevano GitHub: [ChelseaLuevano](https://github.com/ChelseaLuevano)\
+Chris Gould GitHub: [cleegould](https://github.com/Cleegould)\
+Sofie Milillo GitHub: [smilillo](https://github.com/smilillo)\
+Stephanie Simmons GitHub: [ssimmons122](https://github.com/ssimmons122)\
+Tiffany Englad GitHub: [Trengland](https://github.com/Trengland)\
+John Killeen GitHub: [killeen31](https://github.com/killeen31)
 
 ## License
 Please refer to the license in the repo.
