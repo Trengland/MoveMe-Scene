@@ -159,8 +159,6 @@ function getMovieID (title){
 
 // Function to populate Trailer with movie ID
 function Trailers (movieID) {
-    // let trailerURL = "https://api.themoviedb.org/3/movie/" + movieID + "/videos?api_key=" + apiKeyTMBD + "&language=en-US";
-    // Chelsea's back up plan if trailerURL doesn't work
     let videoURL = "https://api.themoviedb.org/3/movie/" + movieID + "?api_key=" + apiKeyTMBD + "&append_to_response=videos,images";
    
     fetch(videoURL)
@@ -169,8 +167,6 @@ function Trailers (movieID) {
                 response.json()
 				.then(function (data) {
                 	console.log(data);	
-					// createTrailerElement(data);
-					// playVideo(data);
 					if (data.videos.results.length != 0) {
 						let youTubeKey = data.videos.results[0].key;
 						let trailerListEl = document.querySelector("#trailer-list");
@@ -179,21 +175,20 @@ function Trailers (movieID) {
 						frame.setAttribute("name", "Trailer Video");
 						frame.setAttribute("id", "frame");
 						frame.frameborder = 0;
-						frame.width = 100 + "%";
-						frame.height = 100 + "%";
+						frame.width = 560;
+						frame.height = 315;
 						frame.position = 'absolute';
+						frame.allowFullscreen = true;
 						frameContainer.append(frame);
 					}	 else {	
 						// Creates paragraph element
 						let noVideosFound = document.createElement("p");
-						let trailerListEl = document.querySelector("#trailer-list");
 
 						// Add text to paragraph element
 						noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
 
 						// Append paragraph element to trailerListEl
 						frameContainer.append(noVideosFound);	
-						// trailerListEl.append("No Trailer");
 						}
 				});
 			} else {
