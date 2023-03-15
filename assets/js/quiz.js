@@ -233,6 +233,17 @@ $(document).ready(function() {
 	});
   });
   
+  $(document).ready(function() {
+
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
+  
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
+  });
+  
 // SM - Check for click events on signup button, pop up modal
 $("#signupbutton").click(function() {
 	// Toggle is-active class on login modal
