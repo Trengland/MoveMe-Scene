@@ -47,7 +47,6 @@ body {
 
 .maintitle {
 	font-size: 70px;
-	color: white;
     font-weight: bold;
     line-height: 1.125;
     text-shadow: 5px 5px 4px white, 4px 4px 2px rgb(32, 88, 207);
@@ -228,7 +227,6 @@ body {
 #trailer-container{
 	color:white;
 }
-
 .frame-container {
   margin-left: 20%;
   margin-right:10%;
@@ -259,4 +257,34 @@ body {
     padding: 20px;
     background-color: lightgrey;
     width: 100%;
+}
+
+/* Mobile Styling */
+@media screen and (min-width: 320px) and (max-width: 480px) { 
+  
+  /* This is the parent container for the "below is recommended title */
+  #recommended-title{
+    display: flex;
+    flex-direction: row;
+    flex-direction: wrap;
+    }
+    /* This is the class of "below is recommened title  */
+  .is-size-3 {
+    font-size: 15px !important; 
+  }
+/* This is the parent container the  youtube videos are in */
+
+  .frame-container {
+    margin-left: 20%;
+    margin-right:20%;
+    position:relative;
+    overflow:hidden;
+    width: 60%;
+  }
+
+  #take-quiz-again{
+    margin-left: 30%;
+     color:#1569C7;
+   }
+  
 }
