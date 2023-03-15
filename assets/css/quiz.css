@@ -261,20 +261,30 @@ body {
 
 /* Mobile Styling */
 @media screen and (min-width: 320px) and (max-width: 480px) { 
-  .maintitle {
-    /* font-size: 35px; */
-  }
+  
+  /* This is the parent container for the "below is recommended title */
   #recommended-title{
     display: flex;
     flex-direction: row;
     flex-direction: wrap;
-  }
+    }
+    /* This is the class of "below is recommened title  */
   .is-size-3 {
-    font-size: 20px !important; 
-    display: flex;
-    flex-direction: row;
-    flex-direction: wrap;
+    font-size: 15px !important; 
   }
+/* This is the parent container the  youtube videos are in */
+
+  .frame-container {
+    margin-left: 20%;
+    margin-right:20%;
+    position:relative;
+    overflow:hidden;
+    width: 60%;
   }
 
+  #take-quiz-again{
+    margin-left: 30%;
+     color:#1569C7;
    }
+  
+}
