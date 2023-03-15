@@ -267,9 +267,7 @@ $("#signupbutton").click(function() {
 	console.log(localStorage);
 	$("#sign-up-modal").removeClass("is-active");
 	});
-
-
-// Hide the quiz questions when results are displayed
+	
 function hideQuiz() {
 	quizContainerEl.css("display", "none");
 	resultsContainerEl.css("display", "block");
@@ -334,39 +332,3 @@ function saveToStorage(e){
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
-
-// if (response.videos.results.length != 0) {
-//     var youTubeKey = response.videos.results[0].key;
-//     $("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
-// } else {
-//     $("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
-// }
-// $("#saveResults").show();
-// $("#saveResults").click(function () {
-//     var existingResults = JSON.parse(localStorage.getItem("PastResults") || '[]');
-//         existingResults.push(response);
-//         localStorage.setItem("PastResults", JSON.stringify(existingResults));
-
-// });
-//   var resultsInputName = document.getElementById('initials')
-
-// 	const title = JSON.parse(localStorage.getItem("title")) || [];
-// 	localStorage.setItem("Results", JSON.stringify ([]));
-// 	console.log(JSON.parse (localStorage.getItem("title"))); 
-
-// 	searchBtn.addEventListener("click", function poster() {
-
-// 		results.results[i].title = e => {
-// 		console.log("clicked the save button!")
-// 		e.preventDefault();
-// 	}
-
-// 	const userResults = {
-// 		results: title,
-// 	}
-
-
-// 	})
-
-
-// 	});
