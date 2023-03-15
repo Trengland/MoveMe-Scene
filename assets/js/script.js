@@ -49,6 +49,8 @@ $(document).ready(function() {
   });
 });
 
+
+
 // SM - Check for click events on signup button, pop up modal
 $("#signupbutton").click(function() {
 // Toggle is-active class on login modal
