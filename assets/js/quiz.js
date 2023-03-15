@@ -232,56 +232,6 @@ $("#signupbutton").click(function() {
 	$("#sign-up-modal").removeClass("is-active");
 	});
 	
-// Function to create an element under Video Trailers if the trailers API call was successful
- // function createTrailerElement (data) { 
-// 	console.log(data);
-// 	if (data.results.length === 0) {
-// 		console.log(data.results)
-
-// 		// Creates paragraph element
-// 		let noVideosFound = document.createElement("p");
-
-// 		// Add text to paragraph element
-// 		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
-
-// 		// Append paragraph element to trailerListEl
-// 		trailerEl.append(noVideosFound);
-// 	}
-
-// 	else {
-// 		// Pull they video key from the API Trailer Array
-// 		let videoKey = data.results[0].key;	
-
-// 		let trailerMovieName =data.results[0].name;
-// 		console.log(trailerMovieName);
-// 		//  Create the Youtube Link with the key of the video
-// 		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-// 		console.log(YoutubeLink);
-
-// 		// Find organized list element
-// 		let trailerListEl = document.querySelector("#trailer-list");
-
-// 		// Creates trailer Link list Element
-// 		let li1 = document.createElement("li");
-
-// 		// // Add text to link
-// 		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
-
-// 		// Append list items to ordered trailerListEl
-// 		trailerListEl.appendChild(li1);
-// 	}
-// };	
-
-// function playVideo(){
-// if (response.videos.results.length != 0) {
-// 	let youTubeKey = response.videos.results[0].key;
-// 	$("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
-// }	 else {	
-// 	$("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
-// 	}
-// }
-
-// Hide the quiz questions when results are displayed
 function hideQuiz() {
 	quizContainerEl.css("display", "none");
 	resultsContainerEl.css("display", "block");
@@ -346,39 +296,3 @@ function saveToStorage(e){
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
-
-// if (response.videos.results.length != 0) {
-//     var youTubeKey = response.videos.results[0].key;
-//     $("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
-// } else {
-//     $("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
-// }
-// $("#saveResults").show();
-// $("#saveResults").click(function () {
-//     var existingResults = JSON.parse(localStorage.getItem("PastResults") || '[]');
-//         existingResults.push(response);
-//         localStorage.setItem("PastResults", JSON.stringify(existingResults));
-
-// });
-//   var resultsInputName = document.getElementById('initials')
-
-// 	const title = JSON.parse(localStorage.getItem("title")) || [];
-// 	localStorage.setItem("Results", JSON.stringify ([]));
-// 	console.log(JSON.parse (localStorage.getItem("title"))); 
-
-// 	searchBtn.addEventListener("click", function poster() {
-
-// 		results.results[i].title = e => {
-// 		console.log("clicked the save button!")
-// 		e.preventDefault();
-// 	}
-
-// 	const userResults = {
-// 		results: title,
-// 	}
-
-
-// 	})
-
-
-// 	});
