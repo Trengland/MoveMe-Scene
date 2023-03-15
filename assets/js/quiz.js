@@ -17,8 +17,6 @@ let resultsSectionEl = document.getElementById("results");
 let frameContainer = document.querySelector(".frame-container");
 
 
-
-
 // Variables defined to show & hide HTML elements on page
 let quizContainerEl = $("#quiz-container");
 let trailerContainerEl= $('#link-to-trailer');
@@ -26,7 +24,7 @@ let resultsContainerEl = $("#results");
 let resultsTitleEl = $("#recommended-title");
 let takeQuizEl = $("#take-quiz-again");
 
-let resultsHeader = document.querySelector('#results-header')
+let resultsHeader = $("#textResults");
 
 
 quizContainerEl.css("display", "block");
@@ -34,6 +32,7 @@ resultsContainerEl.css("display", "none");
 resultsTitleEl.css("display", "none");
 trailerContainerEl.css("display","none");
 takeQuizEl.css("display","none");
+resultsHeader.css("display", "none");
 
 let history = JSON.parse(localStorage.getItem("movieChoices"))
 console.log(history)
@@ -42,7 +41,6 @@ if (history === null) {
     resultsHeader.append('')
 
 } else {
-
 
 
 for (let i = 0; i < history.length; i++) {
@@ -196,75 +194,7 @@ function Trailers (movieID) {
 				
 			}  
 		}); 	
-};	   
-
-// Function to create an element under Video Trailers if the trailers API call was successful
- // function createTrailerElement (data) { 
-// 	console.log(data);
-// 	if (data.results.length === 0) {
-// 		console.log(data.results)
-
-// 		// Creates paragraph element
-// 		let noVideosFound = document.createElement("p");
-
-// 		// Add text to paragraph element
-// 		noVideosFound.textContent= 'Unfortunately, there are no video trailers for the movie' 
-
-// 		// Append paragraph element to trailerListEl
-// 		trailerEl.append(noVideosFound);
-// 	}
-
-// 	else {
-// 		// Pull they video key from the API Trailer Array
-// 		let videoKey = data.results[0].key;	
-
-// 		let trailerMovieName =data.results[0].name;
-// 		console.log(trailerMovieName);
-// 		//  Create the Youtube Link with the key of the video
-// 		let YoutubeLink = "https://www.youtube.com/watch?v=" + videoKey;
-// 		console.log(YoutubeLink);
-
-// 		// Find organized list element
-// 		let trailerListEl = document.querySelector("#trailer-list");
-
-// 		// Creates trailer Link list Element
-// 		let li1 = document.createElement("li");
-
-// 		// // Add text to link
-// 		li1.innerHTML ='<a href=' +YoutubeLink + '>Watch the trailer video: '+ trailerMovieName + '</a>'
-
-// 		// Append list items to ordered trailerListEl
-// 		trailerListEl.appendChild(li1);
-// 	}
-// };	
-
-// function playVideo(){
-// if (response.videos.results.length != 0) {
-// 	let youTubeKey = response.videos.results[0].key;
-// 	$("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
-// }	 else {	
-// 	$("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
-// 	}
-// }
-
-// Hide the quiz questions when results are displayed
-function hideQuiz() {
-	quizContainerEl.css("display", "none");
-	resultsContainerEl.css("display", "block");
-	resultsTitleEl.css("display", "block");
-	trailerContainerEl.css("display","block");
-	takeQuizEl.css("display","block");
-};
-
-function addRecommendedTitle (){
-	// Create an h3 to replace the title at top of movie results
-	let recommendedMoviesTitleEl = document.createElement("h3");
-	recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
-	recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
-	// Append list items to ordered trailerListEl
-	recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
-};
-
+};	
 
 // SM - Mobile Menu -- Code from Bulma documentation example js
 $(document).ready(function() {
@@ -278,30 +208,82 @@ $(document).ready(function() {
 	});
   });
   
-  // SM - Check for click events on signup button, pop up modal
-  $("#signupbutton").click(function () {
-  // Toggle is-active class on login modal
-  $("#sign-up-modal").addClass("is-active");
-  console.log("test");
-  });
-  
-  
-  $(".modal-background").click(function () {
-  $("#sign-up-modal").removeClass("is-active");
-  });
+  $(document).ready(function() {
 
-  // SM - Button Click Events for Thumbs Up and Down
-$("#thumbsUpBtn").click(function () {
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
+  
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
+  });
+  
+// SM - Check for click events on signup button, pop up modal
+$("#signupbutton").click(function() {
+	// Toggle is-active class on login modal
+	$("#sign-up-modal").addClass("is-active");
+	console.log("test");
+	});
 	
-	localStorage.setItem("YAY!", title.value);
+	$(".modal-background").click(function() {
+	$("#sign-up-modal").removeClass("is-active");
+	});
+	
+	// Click event on modal x
+	$("#close-modal-btn").click(function() {
+	$("#sign-up-modal").removeClass("is-active");
+	});
+	
+	// SM - Local Storage of Emails
+	$("#submit-button").click(function() {
+	let email = document.querySelector(".email-input");
+	localStorage.setItem("userEmail", email.value);
 	console.log(localStorage);
-});
+	$("#sign-up-modal").removeClass("is-active");
+	});
+	
+// Hide the quiz questions when results are displayed
+function hideQuiz() {
+	quizContainerEl.css("display", "none");
+	resultsContainerEl.css("display", "block");
+	resultsTitleEl.css("display", "block");
+	trailerContainerEl.css("display","block");
+	takeQuizEl.css("display","block");
+	resultsHeader.css("display", "block");
+};
+
+function addRecommendedTitle (){
+	// Create an h3 to replace the title at top of movie results
+	let recommendedMoviesTitleEl = document.createElement("h3");
+	recommendedMoviesTitleEl.setAttribute("class", "title is-size-3");
+	recommendedMoviesTitleEl.textContent = "Below is a list of our Top 5 Movie Recommendations for you!";
+	// Append list items to ordered trailerListEl
+	recommendedTitleEl.appendChild(recommendedMoviesTitleEl);
+};
+
+function saveToStorage(e){
+    e.preventDefault()
+    console.log("saving")
+    var releaseDateStart = $("#release-start").val();
+	var releaseDateEnd = $("#release-end").val();
+	var runtimeLTE = $("#runtime").val();
+    let initials = document.querySelector("#initials").value
+    var genreIds = "";
+		$("input[name='genres']:checked").each(function () {
+            console.log($(this))
+			genreIds += document.querySelectorAll("#genres").checked
+            console.log(genreIds)
+
+            //parseData = JSON.stringify(genreIds)
+		});
 
 		var certString = "";
 		$("input[name='certifications']:checked").each(function () {
 
 			certString += $(this).val();
 		});
+
     
         console.log(releaseDateStart)
         console.log(releaseDateEnd)
@@ -322,43 +304,7 @@ $("#thumbsUpBtn").click(function () {
         } 
         searches.push(movieChoices)
         localStorage.setItem("movieChoices", JSON.stringify(searches))
-    // }
+    }
 document.getElementById("submitResults").addEventListener("click", saveToStorage)
 console.log(parseData);
 
-
-// if (response.videos.results.length != 0) {
-//     var youTubeKey = response.videos.results[0].key;
-//     $("#results").append("<div class='pad-8'><iframe width='560' height='315' src='https://www.youtube.com/embed/" + youTubeKey + "' frameborder='0' allowfullscreen></iframe></div><hr class='hr'>");
-// } else {
-//     $("#results").append("<div class='pad-8 big-text red-text'>No Trailer</div><hr class='hr'>");
-// }
-// $("#saveResults").show();
-// $("#saveResults").click(function () {
-//     var existingResults = JSON.parse(localStorage.getItem("PastResults") || '[]');
-//         existingResults.push(response);
-//         localStorage.setItem("PastResults", JSON.stringify(existingResults));
-
-// });
-//   var resultsInputName = document.getElementById('initials')
-
-// 	const title = JSON.parse(localStorage.getItem("title")) || [];
-// 	localStorage.setItem("Results", JSON.stringify ([]));
-// 	console.log(JSON.parse (localStorage.getItem("title"))); 
-
-// 	searchBtn.addEventListener("click", function poster() {
-
-// 		results.results[i].title = e => {
-// 		console.log("clicked the save button!")
-// 		e.preventDefault();
-// 	}
-
-// 	const userResults = {
-// 		results: title,
-// 	}
-
-
-// 	})
-
-
-// 	});

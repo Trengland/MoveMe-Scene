@@ -42,14 +42,39 @@ $(document).ready(function() {
         $(".navbar-menu").toggleClass("is-active");
     });
   });
+
+  // Repeat of function - don't know why this fixed the navburger issue on trending page but it works!
+  $(document).ready(function() {
+
+    // Check for click events on the navbar burger icon
+    $(".navbar-burger").click(function() {
   
-  // SM - Check for click events on signup button, pop up modal
-  $("#signupbutton").click(function() {
-  // Toggle is-active class on login modal
-  $("#sign-up-modal").addClass("is-active");
-  console.log("test");
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        $(".navbar-burger").toggleClass("is-active");
+        $(".navbar-menu").toggleClass("is-active");
+    });
   });
-  
-  $(".modal-background").click(function() {
-  $("#sign-up-modal").removeClass("is-active");
-  });
+
+// SM - Check for click events on signup button, pop up modal
+$("#signupbutton").click(function() {
+// Toggle is-active class on login modal
+$("#sign-up-modal").addClass("is-active");
+console.log("test");
+});
+
+$(".modal-background").click(function() {
+$("#sign-up-modal").removeClass("is-active");
+});
+
+// Click event on modal x
+$("#close-modal-btn").click(function() {
+$("#sign-up-modal").removeClass("is-active");
+});
+
+// SM - Local Storage of Emails
+$("#submit-button").click(function() {
+let email = document.querySelector(".email-input");
+localStorage.setItem("userEmail", email.value);
+console.log(localStorage);
+$("#sign-up-modal").removeClass("is-active");
+});

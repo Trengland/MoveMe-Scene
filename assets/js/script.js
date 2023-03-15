@@ -17,22 +17,18 @@ const settings = {
         console.log(response);
         var modal = document.getElementById("myModal");
         var btn = document.getElementById("myBtn");
-        // Chris, my code was giving me an error at this line so I commented it out, mixing vanilla JS with JQuery
-    //     btn.onclick = function() {
-    //         modal.style.display = "block";}
-    //     $("#movieQuote").append(response.quote);
-    //     $("#movie").append(response.movie);
-    // }
-    }
-    );
+        btn.onclick = function() {
+            modal.style.display = "block";}
+        $("#movieQuote").append(response.quote);
+        $("#movie").append(response.movie);
+    });
 
 // CG - Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];
 // When the user clicks on <span> (x), close the modal
-// Chris, my code was giving me an error at this line so I commented it out
-// span.onclick = function () {
-// myModal.style.display = "none";
-// }
+span.onclick = function () {
+myModal.style.display = "none";
+}
 
 // CG - Close Modal 
 window.onclick = function (event) {
@@ -53,6 +49,8 @@ $(document).ready(function() {
   });
 });
 
+
+
 // SM - Check for click events on signup button, pop up modal
 $("#signupbutton").click(function() {
 // Toggle is-active class on login modal
@@ -64,6 +62,11 @@ $(".modal-background").click(function() {
 $("#sign-up-modal").removeClass("is-active");
 });
 
+// Click event on modal x
+$("#close-modal-btn").click(function() {
+$("#sign-up-modal").removeClass("is-active");
+});
+
 // SM - Local Storage of Emails
 $("#submit-button").click(function() {
 let email = document.querySelector(".email-input");
@@ -71,8 +74,3 @@ localStorage.setItem("userEmail", email.value);
 console.log(localStorage);
 $("#sign-up-modal").removeClass("is-active");
 });
-
-$(".close").click(function() {
-    $("#sign-up-modal").removeClass("is-active");
-    });
-
