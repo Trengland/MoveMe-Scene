@@ -68,7 +68,11 @@ body {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: textclip 3s linear infinite;
-  display: inline-block;
+  text-align:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   font-size: 100px;
 }
 
@@ -91,6 +95,10 @@ body {
 .is-size-3 {
 	font-size: large;
   text-align:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 	color: white;
     line-height: 1.125;
     text-shadow: 5px 5px 4px grey, 3px 3px 1px black;
@@ -245,7 +253,11 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: x-large;
 	font-style: bold;
-  margin-left: 48%;
+  text-align:center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 #backtotop:hover {
